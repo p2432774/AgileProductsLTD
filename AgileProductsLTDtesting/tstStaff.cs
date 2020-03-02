@@ -8,6 +8,7 @@ namespace AgileProductsLTDtesting
         clsStaff AnStaff = new clsStaff();
         AnStaff = (clsStaff)Session["AnStaff"];
         Response.Write(AnStaff.Department);
+
     }
     [TestClass]
     public class tstStaff
