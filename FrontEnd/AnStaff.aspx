@@ -32,7 +32,7 @@
         StaffPermissionToChangeOrAdd<asp:CheckBox ID="txtPermissionToCorAdd" runat="server" />
         </p>
     <p>
-        <asp:Button ID="btnOK_Click" runat="server" Text="Button" />
+        <asp:Button ID="btnSubmit" runat="server" Text="Button" />
         </p>
     <p>
         &nbsp;</p>
