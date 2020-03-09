@@ -7,28 +7,37 @@
     <title></title>
 </head>
 <body>
+    <form id="form1" runat="server">
     <p>
-        StaffID&nbsp;&nbsp;&nbsp;
-        <input id="Text1" type="text" /></p>
+        AnStaff</p>
     <p>
-        StaffFirstnameAndLastname&nbsp;&nbsp;&nbsp;
-        <input id="Text2" type="text" /></p>
+        StaffID<asp:TextBox ID="intStaffID" runat="server"></asp:TextBox>
+        </p>
     <p>
-        Department&nbsp;&nbsp;&nbsp;
-        <input id="Text4" type="text" /></p>
+        StaffFirstnameAndLastname<asp:TextBox ID="txtStaffFirstnameAndLastname" runat="server"></asp:TextBox>
+        </p>
     <p>
-        DateOfBirth&nbsp;&nbsp;&nbsp;
-        <input id="Text3" type="text" /></p>
+        StaffDateOfBirth<asp:TextBox ID="txtDateOfBirth" runat="server"></asp:TextBox>
+        </p>
     <p>
-        StreetAddress&nbsp;&nbsp;&nbsp;
-        <input id="Text5" type="text" /></p>
+        StaffAddress<asp:TextBox ID="txtStaffAddress" runat="server"></asp:TextBox>
+        </p>
     <p>
-        PhoneNumber&nbsp;&nbsp;&nbsp;
-        <input id="Text6" type="text" /></p>
+        StaffPhoneNumber<asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
+        </p>
     <p>
-        PermissionToChangeOrAdd&nbsp;&nbsp;&nbsp;
-        <input id="Checkbox1" type="checkbox" /></p>
+        StaffDepartment<asp:TextBox ID="txtDepartment" runat="server"></asp:TextBox>
+        </p>
     <p>
-        <input id="Submit1" type="submit" value="submit" /><input id="Reset1" type="reset" value="reset" /></p>
+        StaffPermissionToChangeOrAdd<asp:CheckBox ID="txtPermissionToCorAdd" runat="server" />
+        </p>
+    <p>
+        <asp:Button ID="btnOK_Click" runat="server" Text="Button" />
+        </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    </form>
 </body>
 </html>
