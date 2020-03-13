@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsHardware.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsSoftware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
