@@ -7,48 +7,73 @@ namespace AgileProductsLTDtesting
     [TestClass]
     public class tstSoftware
     {
+
         [TestMethod]
-        public void TestMethod1()
+        public void InstanceOK()
+        {
+
+            clsSoftware software = new clsSoftware();
+            //test to see that it exists
+            Assert.IsNotNull(software);
+        }
+
+        [TestMethod]
+        public void SoftwareIDPropertyOK()
+        {
+
+            clsSoftware software = new clsSoftware();
+            Int32 TestData = 1;
+            software.SoftwareIDOK = TestData;
+            Assert.AreEqual(software.SoftwareIDOK, TestData);
+        }
+
+
+        [TestMethod]
+        public void SoftwareNameOK()
         {
             clsSoftware software = new clsSoftware();
-            Assert.IsNotNull(software);
-       
+            string TestData = "faran";
+            software.softwareNameOK = TestData;
+            Assert.AreEqual(software.softwareNameOK, TestData);
+        }
+        [TestMethod]
+        public void SoftwareDescriptionOK()
+        {
+            clsSoftware software = new clsSoftware();
+            string TestData = "Microsoft";
+            software.SoftwareDescriptionOK = TestData;
+            Assert.AreEqual(software.SoftwareDescriptionOK, TestData);
+        }
+        [TestMethod]
+        public void SoftwarePriceOK()
+        {
+            clsSoftware software = new clsSoftware();
+            int TestData = 1;
+            software.SoftwarePriceOK = TestData;
+            Assert.AreEqual(software.SoftwarePriceOK, TestData);
+        }
+
+        [TestMethod]
+        public void DateofarrivalOK()
+        {
+        clsSoftware software = new clsSoftware();
+        DateTime TestData = DateTime.Now.Date;
+        software.Dateofarrival=TestData;
+        Assert.AreEqual(software.Dateofarrival, TestData);
+            }
+
+      [TestMethod]
+        public void InstockOK()
+        {
+            clsSoftware software = new clsSoftware();
+
+            Boolean TestData = true;
+            software.Instock = TestData;
+            Assert.AreEqual(software.Instock, TestData);
         }
 
     }
-    [TestMethod]
-    public void NameSoftwareOK()
-    {
-        clsSoftware software = new clsSoftware();
-        string TestData = "faran";
-        software.softwareNameOK = TestData;
-        Assert.AreEqual(software.softwareNameOK, TestData);
-    }
-    [TestMethod]
-    public void DecriptionSoftwareOK()
-    {
-        clsSoftware software = new clsSoftware();
-        string TestData = "Microsoft";
-        software.descriptionSoftwareOK = TestData;
-        Assert.AreEqual(software.descriptionSoftwareOK, TestData);
-    }
-    [TestMethod]
-    public void PriceSoftwareOK()
-    {
-        clsSoftware software = new clsSoftware();
-        int TestData = 1;
-        software.Price = TestData;
-        Assert.AreEqual(software.Price, TestData);
-    }
 
-    [TestMethod]
-    public void ActivePropertyok()
-    {
-        clsSoftware software = new clsSoftware();
-        Boolean TestData = true;
-        software.Active = TestData;
-        Assert.AreEqual(software.Active, TestData);
-    }
 
-}
-}
+
+    }

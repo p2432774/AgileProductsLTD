@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="software\Dateofarrival.cs" />
     <Compile Include="tstSoftware.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,17 +1,19 @@
-﻿namespace Software_HardwareClasses
+﻿using System;
+
+namespace Software_HardwareClasses
 {
     public class clsSoftware
     {
-        internal bool Instock;
-        internal bool Active;
+        public string DecriptionSoftwareOK;
+        public bool Instock;
+        public string SoftwareDescriptionOK;
+        public int SoftwareIDOK;
+        public int SoftwarePriceOK;
+        public DateTime Dateofarrival;
 
-        public object softwareNameOK { get; internal set; }
-        public string SoftwareNameOK { get; internal set; }
-        public string Software { get; internal set; }
-        public string softwareDesciptionOK { get; internal set; }
-        public string softwareDescriptionOK { get; internal set; }
-        public string descriptionSoftwareOK { get; internal set; }
-        public int priceSoftwareOk { get; internal set; }
-        public int Price { get; internal set; }
+        public string softwareNameOK { get; set; }
+        public string descriptionSoftwareOK { get; set; }
+        public int PriceSoftwar { get; set; }
+        public int PriceSoftware { get; set; }
     }
 }
