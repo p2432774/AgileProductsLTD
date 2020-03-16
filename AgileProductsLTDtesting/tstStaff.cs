@@ -1,18 +1,17 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Software_HardwareClasses;
+
+
+
 
 namespace AgileProductsLTDtesting
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        clsStaff AnStaff = new clsStaff();
-        AnStaff = (clsStaff)Session["AnStaff"];
-        Response.Write(AnStaff.Department);
-    }
+
     [TestClass]
     public class tstStaff
     {
-        public object AnStaff { get; private set; }
+        
 
         [TestMethod]
         public void InstanceOK()
@@ -25,10 +24,14 @@ namespace AgileProductsLTDtesting
         public void PermissionToChangeOrAddPropertyOK()
         {
             clsStaff AnStaff = new clsStaff();
+            //create some test data to assign to the property
             Boolean TestData = true;
+            //assign the data to the property
             AnStaff.PermissionToChangeOrAdd = TestData;
-
+            //test to see that the two values are the same
             Assert.AreEqual(AnStaff.PermissionToChangeOrAdd, TestData);
+
+            
         }
 
         [TestMethod]

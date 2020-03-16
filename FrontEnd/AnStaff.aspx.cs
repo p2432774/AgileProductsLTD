@@ -15,7 +15,4 @@ public partial class AnStaff : System.Web.UI.Page
         Response.Write(AnStaff.StaffID);
     }
 
-    protected void btnOK_Click(object sender, EventArgs e)
-    { 
-    }
 }
