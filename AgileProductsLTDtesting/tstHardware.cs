@@ -8,7 +8,7 @@ namespace AgileProductsLTDtesting
     public class tstHardware
     {
         [TestMethod]
-        public void TestMethod1()
+        public void HardwareTest()
         {
             clsHardware hardware = new clsHardware();
             Assert.IsNotNull(hardware);
