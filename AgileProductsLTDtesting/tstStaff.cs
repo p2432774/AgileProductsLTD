@@ -11,7 +11,7 @@ namespace AgileProductsLTDtesting
     [TestClass]
     public class tstStaff
     {
-        
+
 
         [TestMethod]
         public void InstanceOK()
@@ -31,7 +31,6 @@ namespace AgileProductsLTDtesting
             //test to see that the two values are the same
             Assert.AreEqual(AnStaff.PermissionToChangeOrAdd, TestData);
 
-            
         }
 
         [TestMethod]
@@ -88,7 +87,7 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create some test data to assign to the property
-            string TestData = "01234567891";
+            string TestData = "1234567891";
             //assign the data to the property
             AnStaff.PhoneNumber = TestData;
             //test to see that the two values are the same
@@ -106,6 +105,120 @@ namespace AgileProductsLTDtesting
             AnStaff.StaffID = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnStaff.StaffID, TestData);
+
+        }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            int StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void TestStaffIDFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            int StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.StaffID != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestStaffDateOfBirthFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            int StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.DateOfBirth != Convert.ToDateTime("30/03/1980"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestDepartmentFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            int StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.Department != "Packager")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+      
+        }
+        [TestMethod]
+        public void TestFirstNameAndLastnameFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            int StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.StaffFirstnameAndLastname != "Mishal Nanalal")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestPhoneNumberFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            int StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.PhoneNumber != "12345678911")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestStaffAddressFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            int StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.StreetAddress != "Melton Road")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestPermissionFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            int StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.PermissionToChangeOrAdd != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
 
         }
     }

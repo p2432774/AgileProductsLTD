@@ -11,33 +11,31 @@
     <p>
         AnStaff</p>
     <p>
-        StaffID<asp:TextBox ID="intStaffID" runat="server"></asp:TextBox>
+        StaffID<asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox>
         </p>
     <p>
         StaffFirstnameAndLastname<asp:TextBox ID="txtStaffFirstnameAndLastname" runat="server"></asp:TextBox>
         </p>
     <p>
-        StaffDateOfBirth<asp:TextBox ID="txtDateOfBirth" runat="server"></asp:TextBox>
+        StaffDateOfBirth<asp:TextBox ID="txtStaffDateOfBirth" runat="server"></asp:TextBox>
         </p>
     <p>
         StaffAddress<asp:TextBox ID="txtStaffAddress" runat="server"></asp:TextBox>
         </p>
     <p>
-        StaffPhoneNumber<asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
+        StaffPhoneNumber<asp:TextBox ID="txtStaffPhoneNumber" runat="server"></asp:TextBox>
         </p>
     <p>
-        StaffDepartment<asp:TextBox ID="txtDepartment" runat="server"></asp:TextBox>
+        StaffDepartment<asp:TextBox ID="txtStaffDepartment" runat="server"></asp:TextBox>
         </p>
     <p>
-        StaffPermissionToChangeOrAdd<asp:CheckBox ID="txtPermissionToCorAdd" runat="server" />
+        StaffPermissionToChangeOrAdd<asp:CheckBox ID="txtStaffPermissionToCorAdd" runat="server" Checked="True" />
         </p>
     <p>
-        <asp:Button ID="btnSubmit" runat="server" Text="Button" />
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
         </p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
