@@ -49,8 +49,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsoftware.cs" />
+    <Compile Include="FindMethodOK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="software\Dateofarrival.cs" />
+    <Compile Include="TestSoftwareIDNoFound.cs" />
     <Compile Include="tstSoftware.cs" />
   </ItemGroup>
   <ItemGroup>
