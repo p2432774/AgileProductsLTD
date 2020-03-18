@@ -4,6 +4,7 @@ namespace Software_HardwareClasses
 {
     public class clsSoftware
     {
+        public readonly string SoftwareID;
         public string DecriptionSoftwareOK;
         public bool Instock;
         public string SoftwareDescriptionOK;
