@@ -117,6 +117,14 @@ namespace Software_HardwareClasses
             {
                 return false;
             }
+
         }
+
+        public string Valid(string phoneNumber, string dateOfBirth, string staffFirstnameAndLastname, string streetAddress, string department)
+        {
+            return "";
+        }
+        // public string Valid(string PhoneNumber, DateTime DateOfBirth, string StaffFirstnameAndLastname, string StreetAddress, string Department)
+
     }
 }

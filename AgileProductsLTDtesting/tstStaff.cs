@@ -11,7 +11,12 @@ namespace AgileProductsLTDtesting
     [TestClass]
     public class tstStaff
     {
-
+        string PhoneNumber = "012345678911";
+        string DateOfBirth = DateTime.Now.Date.ToString();
+        string StaffFirstnameAndLastname = "Joe Bloggs";
+        string StreetAddress = "Some Road";
+        string Department = "Packager";
+    
 
         [TestMethod]
         public void InstanceOK()
@@ -159,7 +164,7 @@ namespace AgileProductsLTDtesting
                 OK = false;
             }
             Assert.IsTrue(OK);
-      
+
         }
         [TestMethod]
         public void TestFirstNameAndLastnameFound()
@@ -219,8 +224,17 @@ namespace AgileProductsLTDtesting
                 OK = false;
             }
             Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsStaff AnStaff = new clsStaff();
+            string Error = "";
+            Error = AnStaff.Valid(PhoneNumber, DateOfBirth, StaffFirstnameAndLastname, StreetAddress, Department);
+            Assert.AreEqual(Error, "");
 
         }
     }
 }
+
 

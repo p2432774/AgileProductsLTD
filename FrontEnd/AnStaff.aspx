@@ -12,6 +12,7 @@
         AnStaff</p>
     <p>
         StaffID<asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox>
+        <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click1" />
         </p>
     <p>
         StaffFirstnameAndLastname<asp:TextBox ID="txtStaffFirstnameAndLastname" runat="server"></asp:TextBox>
@@ -29,7 +30,7 @@
         StaffDepartment<asp:TextBox ID="txtStaffDepartment" runat="server"></asp:TextBox>
         </p>
     <p>
-        StaffPermissionToChangeOrAdd<asp:CheckBox ID="txtStaffPermissionToCorAdd" runat="server" Checked="True" />
+        StaffPermissionToChangeOrAdd<asp:CheckBox ID="txtStaffPermissionToCorAdd" runat="server" />
         </p>
     <p>
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
