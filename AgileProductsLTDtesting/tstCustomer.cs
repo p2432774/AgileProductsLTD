@@ -36,7 +36,7 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "12-34-56";
+            String TestData = "12-34-56";
             //assign the data to the property
             AnCustomer.Sortcode = TestData;
             //test to see that the two values are the same
@@ -49,7 +49,7 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "Declan1998m@gmail.com";
+            String TestData = "Declan1998m@gmail.com";
             //assign the data to the property
             AnCustomer.Emailaddress = TestData;
             //test to see that the two values are the same
@@ -62,7 +62,7 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "8 b abbotham road bideford ex393aq";
+            String TestData = "8 b abbotham road bideford ex393aq";
             //assign the data to the property
             AnCustomer.Address = TestData;
             //test to see that the two values are the same
@@ -75,7 +75,7 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "declan monaghan";
+            String TestData = "declan monaghan";
             //assign the data to the property
             AnCustomer.FullName = TestData;
             //test to see that the two values are the same
@@ -101,11 +101,20 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //create some test data to assign to the property
-            Int16 TestData = 2;
+            int TestData = 1;
             //assign the data to the property
             AnCustomer.CustomerID = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnCustomer.CustomerID, TestData);
+        }
+
+        [TestMethod]
+        public void DOBOK()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            DateTime testData = DateTime.Now.Date;
+            AnCustomer.DOB = testData;
+            Assert.AreEqual(AnCustomer.DOB, testData);
         }
 
         [TestMethod]
@@ -147,26 +156,27 @@ namespace AgileProductsLTDtesting
 
         }
 
-        public void TestDOBFound()
-        {
-            //create an instance of the class we want to create
-            clsCustomer AnCustomer = new clsCustomer();
-            //boolean variable to score the result of the search
-            Boolean Found = false;
-            //boolean variable to record if data is ok (assume it is)
-            Boolean OK = true;
-            //create some test data to use with the method
-            Int16 CustomerID = 21;
-            //invoke the method
-            Found = AnCustomer.Find(CustomerID);
-            //check the DOB
-            if (AnCustomer.DOB != Convert.ToDateTime("15/04/1998"))
-            {
-                OK = false;
-            }
-            //test to see tyhat the result is correct
-            Assert.IsTrue(OK);
+        /* [TestMethod]
+         public void TestDOBFound()
+         {
+             //create an instance of the class we want to create
+             clsCustomer AnCustomer = new clsCustomer();
+             //boolean variable to score the result of the search
+             Boolean Found = false;
+             //boolean variable to record if data is ok (assume it is)
+             Boolean OK = true;
+             //create some test data to use with the method
+             Int16 CustomerID = 21;
+             //invoke the method
+             Found = AnCustomer.Find(CustomerID);
+             //check the DOB
+             if (AnCustomer.DOB != Convert.ToDateTime("15/04/1998"))
+             {
+                 OK = false;
+             }
+             //test to see tyhat the result is correct
+             Assert.IsTrue(OK);
 
-        }
+         }*/
     }
 }

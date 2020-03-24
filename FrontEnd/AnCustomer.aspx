@@ -33,7 +33,7 @@
         </p>
         <p>
             Card number&nbsp;
-            <asp:TextBox ID="txtCardnumber" runat="server" OnTextChanged="txtCardumber_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="txtCardnumber" runat="server" ></asp:TextBox>
         </p>
         <p>
             Sort code&nbsp;
