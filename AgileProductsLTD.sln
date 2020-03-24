@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FrontEnd", "FrontEnd\", "{2B487DA5-C8DA-4805-8395-12601EBB10FA}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{dda227ad-8a2b-4331-a61a-c7d6f789d2d0}|Software_HardwareClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_2904"
 		Debug.AspNetCompiler.PhysicalPath = "FrontEnd\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2904\"
@@ -21,6 +22,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FrontEnd", "FrontEnd\", "{2
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "2904"
+		SlnRelativePath = "FrontEnd\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
