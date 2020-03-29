@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace BackEnd
 {
-    static class Program
+    static class tblHardware
     {
         /// <summary>
         /// The main entry point for the application.
