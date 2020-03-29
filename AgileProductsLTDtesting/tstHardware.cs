@@ -5,12 +5,12 @@ using Software_HardwareClasses;
 namespace AgileProductsLTDtesting
 {
     [TestClass]
-    public class TstHardware
+    public class tstHardware
     {
         [TestMethod]
         public void InstanceOK()
         {
-            ClsHardware hardware = new ClsHardware();
+            clsHardware hardware = new clsHardware();
             Assert.IsNotNull(hardware);
         }
     }

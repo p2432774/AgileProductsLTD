@@ -2,18 +2,18 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("AgileProductsLTDTest")]
+[assembly: AssemblyTitle("AgileProductsLTDtesting")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AgileProductsLTDTest")]
+[assembly: AssemblyProduct("AgileProductsLTDtesting")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 
-[assembly: Guid("9caa70a4-3c1c-4ae5-a12b-4d2a9e12a486")]
+[assembly: Guid("de9771cd-5296-4609-b02a-e3133de8a9dd")]
 
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]

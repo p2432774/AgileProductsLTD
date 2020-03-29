@@ -2,7 +2,7 @@
 
 namespace Software_HardwareClasses
 {
-    public class ClsHardware
+    public class clsHardware
     {
     }
 }
