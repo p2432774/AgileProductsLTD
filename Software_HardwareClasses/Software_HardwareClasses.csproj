@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClsDatabaseConnection.cs" />
-    <Compile Include="ClsHardware.cs" />
+    <Compile Include="clsDatabaseConnection.cs" />
+    <Compile Include="clsHardware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
