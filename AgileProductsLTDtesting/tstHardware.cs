@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Software_HardwareClasses;
 
 namespace AgileProductsLTDtesting
 {
@@ -8,11 +7,8 @@ namespace AgileProductsLTDtesting
     public class tstHardware
     {
         [TestMethod]
-        public void HardwareTest()
+        public void TestMethod1()
         {
-            clsHardware hardware = new clsHardware();
-            Assert.IsNotNull(hardware);
-
         }
     }
 }

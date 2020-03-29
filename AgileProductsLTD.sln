@@ -3,33 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FrontEnd", "FrontEnd\", "{2B487DA5-C8DA-4805-8395-12601EBB10FA}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_2904"
-		Debug.AspNetCompiler.PhysicalPath = "FrontEnd\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2904\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_2904"
-		Release.AspNetCompiler.PhysicalPath = "FrontEnd\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2904\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "2904"
-		SlnRelativePath = "FrontEnd\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileProductsLTDtesting", "AgileProductsLTDtesting\AgileProductsLTDtesting.csproj", "{D1AED60A-1C1E-4C8A-94C7-5E5BF5C53190}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Software_HardwareClasses", "Software_HardwareClasses\Software_HardwareClasses.csproj", "{DDA227AD-8A2B-4331-A61A-C7D6F789D2D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{A3F391C6-4CC9-46B1-841C-BCC2B4F7E268}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "C:\Users\p2432609\source\repos\Hardware and software\Backend\Backend.csproj", "{63EF4F3C-0E95-4B9C-8930-E96C9C5AAB2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEnd", "BackEnd\BackEnd.csproj", "{0A9903CB-25E8-4FFD-B0ED-4E3D3EF60411}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileProductsLTDtesting", "AgileProductsLTDtesting\AgileProductsLTDtesting.csproj", "{8B107B01-DE2A-4545-961A-8F0E80C15520}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Software_HardwareClasses", "Software_HardwareClasses\Software_HardwareClasses.csproj", "{F02429D9-7C63-4590-9A9A-A9193BB853A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,22 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2B487DA5-C8DA-4805-8395-12601EBB10FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B487DA5-C8DA-4805-8395-12601EBB10FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B487DA5-C8DA-4805-8395-12601EBB10FA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B487DA5-C8DA-4805-8395-12601EBB10FA}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{DDA227AD-8A2B-4331-A61A-C7D6F789D2D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDA227AD-8A2B-4331-A61A-C7D6F789D2D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDA227AD-8A2B-4331-A61A-C7D6F789D2D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDA227AD-8A2B-4331-A61A-C7D6F789D2D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63EF4F3C-0E95-4B9C-8930-E96C9C5AAB2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63EF4F3C-0E95-4B9C-8930-E96C9C5AAB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63EF4F3C-0E95-4B9C-8930-E96C9C5AAB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63EF4F3C-0E95-4B9C-8930-E96C9C5AAB2D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8B107B01-DE2A-4545-961A-8F0E80C15520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B107B01-DE2A-4545-961A-8F0E80C15520}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B107B01-DE2A-4545-961A-8F0E80C15520}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8B107B01-DE2A-4545-961A-8F0E80C15520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1AED60A-1C1E-4C8A-94C7-5E5BF5C53190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1AED60A-1C1E-4C8A-94C7-5E5BF5C53190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1AED60A-1C1E-4C8A-94C7-5E5BF5C53190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1AED60A-1C1E-4C8A-94C7-5E5BF5C53190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3F391C6-4CC9-46B1-841C-BCC2B4F7E268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F391C6-4CC9-46B1-841C-BCC2B4F7E268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F391C6-4CC9-46B1-841C-BCC2B4F7E268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F391C6-4CC9-46B1-841C-BCC2B4F7E268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A9903CB-25E8-4FFD-B0ED-4E3D3EF60411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A9903CB-25E8-4FFD-B0ED-4E3D3EF60411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A9903CB-25E8-4FFD-B0ED-4E3D3EF60411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A9903CB-25E8-4FFD-B0ED-4E3D3EF60411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F02429D9-7C63-4590-9A9A-A9193BB853A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F02429D9-7C63-4590-9A9A-A9193BB853A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F02429D9-7C63-4590-9A9A-A9193BB853A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F02429D9-7C63-4590-9A9A-A9193BB853A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
