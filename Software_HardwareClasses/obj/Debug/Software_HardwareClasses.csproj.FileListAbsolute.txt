@@ -1,0 +1,6 @@
+C:\Users\danie\Desktop\AgileProductsLTD\Software_HardwareClasses\bin\Debug\Software_HardwareClasses.dll
+C:\Users\danie\Desktop\AgileProductsLTD\Software_HardwareClasses\bin\Debug\Software_HardwareClasses.pdb
+C:\Users\danie\Desktop\AgileProductsLTD\Software_HardwareClasses\obj\Debug\Software_HardwareClasses.csprojAssemblyReference.cache
+C:\Users\danie\Desktop\AgileProductsLTD\Software_HardwareClasses\obj\Debug\Software_HardwareClasses.csproj.CoreCompileInputs.cache
+C:\Users\danie\Desktop\AgileProductsLTD\Software_HardwareClasses\obj\Debug\Software_HardwareClasses.dll
+C:\Users\danie\Desktop\AgileProductsLTD\Software_HardwareClasses\obj\Debug\Software_HardwareClasses.pdb

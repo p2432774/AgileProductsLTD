@@ -1,0 +1,9 @@
+C:\Users\danie\Desktop\AgileProductsLTD\BackEnd\bin\Debug\BackEnd.exe.config
+C:\Users\danie\Desktop\AgileProductsLTD\BackEnd\bin\Debug\BackEnd.exe
+C:\Users\danie\Desktop\AgileProductsLTD\BackEnd\bin\Debug\BackEnd.pdb
+C:\Users\danie\Desktop\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.csprojAssemblyReference.cache
+C:\Users\danie\Desktop\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.Properties.Resources.resources
+C:\Users\danie\Desktop\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.csproj.GenerateResource.cache
+C:\Users\danie\Desktop\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.csproj.CoreCompileInputs.cache
+C:\Users\danie\Desktop\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.exe
+C:\Users\danie\Desktop\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.pdb
