@@ -13,5 +13,24 @@ namespace AgileProductsLTDtesting
             clsHardware hardware = new clsHardware();
             Assert.IsNotNull(hardware);
         }
+
+        [TestMethod]
+        public void DateAddedHardwareOK()
+        {
+            clsHardware hardware = new clsHardware();
+            DateTime TestDate = DateTime.Now.Date;
+            hardware.DateAdded = TestDate;
+            Assert.AreEqual(hardware.DateAdded, TestDate);
+
+        }
+
+        [TestMethod]
+        public void ActiveHardwareIDOK()
+        {
+            clsHardware hardware = new clsHardware();
+            Boolean HardwareID = true;
+            hardware.Active = HardwareID;
+            Assert.AreEqual(hardware.Active, HardwareID);
+        }
     }
 }
