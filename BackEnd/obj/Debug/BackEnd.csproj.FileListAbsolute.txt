@@ -1,9 +1,0 @@
-B:\Programming\GitHub Repositories\AgileProductsLTD\BackEnd\bin\Debug\BackEnd.exe.config
-B:\Programming\GitHub Repositories\AgileProductsLTD\BackEnd\bin\Debug\BackEnd.exe
-B:\Programming\GitHub Repositories\AgileProductsLTD\BackEnd\bin\Debug\BackEnd.pdb
-B:\Programming\GitHub Repositories\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.csprojAssemblyReference.cache
-B:\Programming\GitHub Repositories\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.Properties.Resources.resources
-B:\Programming\GitHub Repositories\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.csproj.GenerateResource.cache
-B:\Programming\GitHub Repositories\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.csproj.CoreCompileInputs.cache
-B:\Programming\GitHub Repositories\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.exe
-B:\Programming\GitHub Repositories\AgileProductsLTD\BackEnd\obj\Debug\BackEnd.pdb

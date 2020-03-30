@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0A9903CB-25E8-4FFD-B0ED-4E3D3EF60411}</ProjectGuid>
+    <ProjectGuid>{51A44206-E3C1-411C-BC19-2FEBD0A11F44}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>BackEnd</RootNamespace>
     <AssemblyName>BackEnd</AssemblyName>
@@ -52,7 +52,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="tblHardware.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
