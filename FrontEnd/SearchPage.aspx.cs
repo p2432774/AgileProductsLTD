@@ -24,6 +24,14 @@ public partial class _Default : System.Web.UI.Page
         clsHardware hardware = new clsHardware();
         //Captures the products name
         hardware.Name = txtName.Text;
+        //Captures the description
+        hardware.Description = txtDescription.Text;
+        //Captures the price 
+        hardware.Price = Int32.Parse(txtPrice.Text);
+        //Captures if the "MoreStockRequired" box was ticked
+        hardware.StockRequired = stockbox.Checked;
+        //Captures the date
+        hardware.DateAdded = DateTime.ParseExact(txtDate.Text, "dd/MM/yyyy", null);
         //Stores the address in the session object
         Session["hardware"] = hardware;
         //Redirect to the product page

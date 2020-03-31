@@ -33,8 +33,8 @@
         <p>
             &nbsp;
             Date To Be Added: 
-            <asp:TextBox ID="txtdate" runat="server" Width="68px"></asp:TextBox>
-        </p>
+            <asp:TextBox ID="txtDate" runat="server" Width="68px"></asp:TextBox>
+        &nbsp;(DD/MM/YYYY)</p>
         <p>
             &nbsp;</p>
         <p>
