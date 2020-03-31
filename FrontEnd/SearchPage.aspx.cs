@@ -10,9 +10,7 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsHardware hardware = new clsHardware();
-        hardware = (clsHardware)Session["Hardware"];
-        Response.Write(hardware.txtName);
+
     }
 
     protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
