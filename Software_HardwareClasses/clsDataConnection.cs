@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System;
-
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data.OleDb;
 using System.Data;
-//using ClassControlLib; -> class lib 
 
 namespace Software_HardwareClasses
 {
-    class clsDataConnection
-    {
 
+
+    //using ClassControlLib; -> class lib 
+
+    ///This class uses the ado.net sql classes to provide a connection to an Azure sql server database.
+    ///it is free for use by anybody so long as you give credit to the original author i.e me
+    ///Matthew Dean mjdean@dmu.ac.uk De Montfort University 2019
+
+    public class clsDataConnection
+    {
         //connection object used to connect to the database
         SqlConnection connectionToDB = new SqlConnection();
         //data adapter used to transfer data to and from the database
@@ -218,6 +218,5 @@ namespace Software_HardwareClasses
                 dataTable = value;
             }
         }
-
     }
 }

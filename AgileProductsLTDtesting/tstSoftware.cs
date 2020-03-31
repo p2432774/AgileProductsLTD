@@ -7,7 +7,6 @@ namespace AgileProductsLTDtesting
     [TestClass]
     public class tstSoftware
     {
-
         [TestMethod]
         public void InstanceOK()
         {
@@ -32,7 +31,7 @@ namespace AgileProductsLTDtesting
         public void SoftwareNameOK()
         {
             clsSoftware software = new clsSoftware();
-            string TestData = "faran";
+            String TestData = "faran";
             software.softwareNameOK = TestData;
             Assert.AreEqual(software.softwareNameOK, TestData);
         }
@@ -40,7 +39,7 @@ namespace AgileProductsLTDtesting
         public void SoftwareDescriptionOK()
         {
             clsSoftware software = new clsSoftware();
-            string TestData = "Microsoft";
+            String TestData = "Microsoft";
             software.SoftwareDescriptionOK = TestData;
             Assert.AreEqual(software.SoftwareDescriptionOK, TestData);
         }
@@ -48,7 +47,7 @@ namespace AgileProductsLTDtesting
         public void SoftwarePriceOK()
         {
             clsSoftware software = new clsSoftware();
-            int TestData = 1;
+            Int32 TestData = 1;
             software.SoftwarePriceOK = TestData;
             Assert.AreEqual(software.SoftwarePriceOK, TestData);
         }
@@ -56,13 +55,13 @@ namespace AgileProductsLTDtesting
         [TestMethod]
         public void DateofarrivalOK()
         {
-        clsSoftware software = new clsSoftware();
-        DateTime TestData = DateTime.Now.Date;
-        software.Dateofarrival=TestData;
-        Assert.AreEqual(software.Dateofarrival, TestData);
-            }
+            clsSoftware software = new clsSoftware();
+            DateTime TestData = DateTime.Now.Date;
+            software.Dateofarrival = TestData;
+            Assert.AreEqual(software.Dateofarrival, TestData);
+        }
 
-      [TestMethod]
+        [TestMethod]
         public void InstockOK()
         {
             clsSoftware software = new clsSoftware();
@@ -73,7 +72,4 @@ namespace AgileProductsLTDtesting
         }
 
     }
-
-
-
-    }
+}
