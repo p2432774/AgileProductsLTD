@@ -5,9 +5,10 @@ VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEnd", "BackEnd\BackEnd.csproj", "{51A44206-E3C1-411C-BC19-2FEBD0A11F44}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FrontEnd", "FrontEnd\", "{EB94FA4E-30DF-482C-A5F8-97A11EBFC9C7}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FrontEnd", "FrontEnd\", "{2B487DA5-C8DA-4805-8395-12601EBB10FA}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{7997ef07-7f40-4a24-961f-6a8cfe79b1c4}|Software_HardwareClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_58737"
 		Debug.AspNetCompiler.PhysicalPath = "FrontEnd\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58737\"
@@ -40,10 +41,10 @@ Global
 		{51A44206-E3C1-411C-BC19-2FEBD0A11F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51A44206-E3C1-411C-BC19-2FEBD0A11F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51A44206-E3C1-411C-BC19-2FEBD0A11F44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB94FA4E-30DF-482C-A5F8-97A11EBFC9C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB94FA4E-30DF-482C-A5F8-97A11EBFC9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB94FA4E-30DF-482C-A5F8-97A11EBFC9C7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB94FA4E-30DF-482C-A5F8-97A11EBFC9C7}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2B487DA5-C8DA-4805-8395-12601EBB10FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B487DA5-C8DA-4805-8395-12601EBB10FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B487DA5-C8DA-4805-8395-12601EBB10FA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B487DA5-C8DA-4805-8395-12601EBB10FA}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{7997EF07-7F40-4A24-961F-6A8CFE79B1C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7997EF07-7F40-4A24-961F-6A8CFE79B1C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7997EF07-7F40-4A24-961F-6A8CFE79B1C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
