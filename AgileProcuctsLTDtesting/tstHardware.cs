@@ -159,7 +159,7 @@ namespace AgileProcuctsLTDtesting
             //Invoke the find method
             Found = hardware.Find(TestHardwareID);
             //Check the Name
-            if (hardware.Name != "Test Name")
+            if (hardware.Name != "AMD Ryzen 7 3700X")
             {
                 OK = false;
             }
@@ -180,7 +180,7 @@ namespace AgileProcuctsLTDtesting
             //Invoke the find method
             Found = hardware.Find(TestHardwareID);
             //Check the Description
-            if (hardware.Description != "Test Description")
+            if (hardware.Description != "An AMD Octa-Core CPU")
             {
                 OK = false;
             }
@@ -201,7 +201,7 @@ namespace AgileProcuctsLTDtesting
             //Invoke the find method
             Found = hardware.Find(TestHardwareID);
             //Check the Price
-            if (hardware.Price != 10)
+            if (hardware.Price != 175)
             {
                 OK = false;
             }
@@ -222,7 +222,7 @@ namespace AgileProcuctsLTDtesting
             //Invoke the find method
             Found = hardware.Find(TestHardwareID);
             //Check the AmountInStock
-            if (hardware.AmountInStock != 10)
+            if (hardware.AmountInStock != 3)
             {
                 OK = false;
             }
@@ -244,7 +244,7 @@ namespace AgileProcuctsLTDtesting
             //Invoke the find method
             Found = hardware.Find(HardWareID);
             //Check date
-            if (hardware.DateAdded != Convert.ToDateTime("12/12/1212"))
+            if (hardware.DateAdded != Convert.ToDateTime("19/01/2019"))
             {
                 OK = false;
             }

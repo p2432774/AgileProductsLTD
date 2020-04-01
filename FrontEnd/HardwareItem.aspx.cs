@@ -15,8 +15,6 @@ public partial class HardwareItem : System.Web.UI.Page
         //Get Data from the session object
         hardware = (clsHardware)Session["hardware"];
         //Display the name for this entry
-        Response.Write(hardware.Name);
-        Response.Write(hardware.DateAdded);
-        Response.Write(hardware.Price);
+       
     }
 }
