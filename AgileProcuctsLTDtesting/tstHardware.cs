@@ -116,9 +116,9 @@ namespace AgileProcuctsLTDtesting
             //Creates a boolean variable for use with the validation
             Boolean Found = false;
             //Creates a test int variable
-            Int32 HardwareID = 1;
+            Int32 TestHardwareID = 5;
             //Invoke the find method
-            Found = hardware.Find(HardwareID);
+            Found = hardware.Find(TestHardwareID);
             //Test to see if the result is correct
             Assert.IsTrue(Found);
         }

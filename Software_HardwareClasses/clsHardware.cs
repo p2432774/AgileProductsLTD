@@ -10,7 +10,9 @@ namespace Software_HardwareClasses
         private string mDescription;
         private Int32 mPrice;
         private Int32 mAmountInStock;
+        private Boolean mStockRequired;
         private DateTime mDateAdded;
+        private Boolean mActive;
 
         //Creates a variety of variables with getters and setters for each non-bool variable
         public Int32 HardwareID
@@ -68,7 +70,17 @@ namespace Software_HardwareClasses
                 mAmountInStock = value;
             }
         }
-        public bool StockRequired { get; set; }
+        public Boolean StockRequired
+        {
+            get
+            {
+                return mStockRequired;
+            }
+            set
+            {
+                mStockRequired = value;
+            }
+        }
         public DateTime DateAdded
         {
             get
@@ -80,19 +92,48 @@ namespace Software_HardwareClasses
                 mDateAdded = value;
             }
         }
-        public bool Active { get; set; }
+        public Boolean Active
+        {
+            get
+            {
+                return mActive;
+            }
+            set
+            {
+                mActive = value;
+            }
+        }
 
         //Invokes the find method
-        public bool Find(Int32 HardWareID)
+        public bool Find(int HardWareID)
         {
-            mHardWareID = 5;
-            mName = "Test Name";
-            mDescription = "Test Description";
-            mPrice = 10;
-            mAmountInStock = 10;
-            mDateAdded = Convert.ToDateTime("12/12/1212");
-            //Always return true
-            return true;
+            //Creates an instance of a data connection
+            clsDataConnection DB = new clsDataConnection();
+            //Add the parameter for the the HardWareID number to search for
+            DB.AddParameter("@HardWareID", HardWareID);
+            //Execute the stored procedure
+            DB.Execute("sproc_tblHardWare_FilterByHardwareNo");
+            //If one record is found execute the code below
+            if (DB.Count == 1)
+            {
+                //Copy the data from the table into the private data members
+                mHardWareID = Convert.ToInt32(DB.DataTable.Rows[0]["HardWareID"]);
+                mName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
+                mDescription = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
+                mPrice = Convert.ToInt32(DB.DataTable.Rows[0]["Price"]);
+                mAmountInStock = Convert.ToInt32(DB.DataTable.Rows[0]["AmountInStock"]);
+                mStockRequired = Convert.ToBoolean(DB.DataTable.Rows[0]["StockRequired"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                //Return true to indicate there is not a problem
+                return true;
+            }
+            //If no record is found
+            else
+            {
+                //Return false to indicate there is a problem
+                return false;
+            }
+
         }
     }
 }
