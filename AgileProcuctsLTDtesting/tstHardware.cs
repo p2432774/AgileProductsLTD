@@ -7,6 +7,16 @@ namespace AgileProcuctsLTDtesting
     [TestClass]
     public class tstHardware
     {
+
+        //Creates test data
+        string HardWareID = "1";
+        string Name = "Name";
+        string Description = "This is a description";
+        string Price = "125";
+        string AmountInStock = "5";
+        string StockRequired = "False";
+        string DateAdded = DateTime.Now.Date.ToString();
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -108,6 +118,8 @@ namespace AgileProcuctsLTDtesting
             Assert.AreEqual(hardware.Active, HardwareID);
         }
 
+        //    FIND -- FIND -- FIND -- FIND -- FIND -- FIND -- FIND -- FIND -- FIND -- FIND   
+
         [TestMethod]
         public void FindMethodOK()
         {
@@ -126,7 +138,7 @@ namespace AgileProcuctsLTDtesting
         [TestMethod]
         public void TestHardwareIDFound()
         {
-            //Creates and instance of clsHardware
+            //Creates instance of clsHardware
             clsHardware hardware = new clsHardware();
             //Creates a boolean variable to store the result of the search
             Boolean Found = false;
@@ -148,7 +160,7 @@ namespace AgileProcuctsLTDtesting
         [TestMethod]
         public void TestNameFound()
         {
-            //Creates and instance of clsHardware
+            //Creates instance of clsHardware
             clsHardware hardware = new clsHardware();
             //Creates a boolean variable to store the result of the search
             Boolean Found = false;
@@ -170,7 +182,7 @@ namespace AgileProcuctsLTDtesting
         [TestMethod]
         public void TestDescriptionFound()
         {
-            //Creates and instance of clsHardware
+            //Creates instance of clsHardware
             clsHardware hardware = new clsHardware();
             //Creates a boolean variable to store the result of the search
             Boolean Found = false;
@@ -191,7 +203,7 @@ namespace AgileProcuctsLTDtesting
         [TestMethod]
         public void TestPriceFound()
         {
-            //Creates and instance of clsHardware
+            //Creates instance of clsHardware
             clsHardware hardware = new clsHardware();
             //Creates a boolean variable to store the result of the search
             Boolean Found = false;
@@ -212,7 +224,7 @@ namespace AgileProcuctsLTDtesting
         [TestMethod]
         public void TestAmountInStockFound()
         {
-            //Creates and instance of clsHardware
+            //Creates instance of clsHardware
             clsHardware hardware = new clsHardware();
             //Creates a boolean variable to store the result of the search
             Boolean Found = false;
@@ -223,6 +235,27 @@ namespace AgileProcuctsLTDtesting
             Found = hardware.Find(TestHardwareID);
             //Check the AmountInStock
             if (hardware.AmountInStock != 3)
+            {
+                OK = false;
+            }
+            //Test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStockRequiredFound()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a boolean variable to store the result of the search
+            Boolean Found = false;
+            //Creates another boolean variable this time to record if the data is ok
+            Boolean OK = true;
+            Int32 TestHardwareID = 5;
+            //Invoke the find method
+            Found = hardware.Find(TestHardwareID);
+            //Check the AmountInStock
+            if (hardware.StockRequired != false)
             {
                 OK = false;
             }
@@ -250,6 +283,385 @@ namespace AgileProcuctsLTDtesting
             }
             //Test to see if the result is correct
             Assert.IsTrue(OK);
+        }
+
+        // VALIDATION -- VALIDATION -- VALIDATION --VALIDATION -- VALIDATION -- VALIDATION
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Invoke the Validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HardWareIDMinLessOne()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string HardWareID = "";
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HardWareIDMin()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string HardWareID = "a"; 
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HardWareIDMinPlusOne()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string HardWareID = "aa";
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HardWareIDMaxLessOne()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string HardWareID = "aaaaa";
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HardWareIDMax()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string HardWareID = "aaaaaa";
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HardWareIDMid()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string HardWareID = "aaa";
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HardWareIDMaxPlusOne()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string HardWareID = "aaaaaaa";
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HardWareIDExtremeMax()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string HardWareID = "";
+            HardWareID = HardWareID.PadRight(500, 'a');
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMinLessOne()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string Name = "";
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMin()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string Name = "a";
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMinPlusOne()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string Name = "aa";
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMaxLessOne()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string Name = "";
+            Name = Name.PadRight(24, 'a');
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMax()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string Name = "";
+            Name = Name.PadRight(25, 'a');
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMid()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string Name = "";
+            Name = Name.PadRight(13, 'a');
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMaxPlusOne()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string Name = "";
+            Name = Name.PadRight(26, 'a');
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameExtremeMax()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test string variable to pass to the method
+            string Name = "";
+            Name = Name.PadRight(500, 'a');
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedExtremeMin()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Create a test date variable to pass to the method
+            DateTime TestDate;
+            //Sets TestDate to todays date
+            TestDate = DateTime.Now.Date;
+            //Change the date to whatever date is 100 years before
+            TestDate = TestDate.AddYears(-100);
+            //Converts the date to a string variable
+            string DateAdded = TestDate.ToString();
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            //Create instance of clsHardWare
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test date variable to pass to the method
+            DateTime TestDate;
+            //Sets TestDate to todays date
+            TestDate = DateTime.Now.Date;
+            //Change the date to whatever date is 1 day before
+            TestDate = TestDate.AddDays(-1);
+            //Converts the date to a string variable
+            string DateAdded = TestDate.ToString();
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            //Create instance of clsHardWare
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test date variable to pass to the method
+            DateTime TestDate;
+            //Sets TestDate to todays date
+            TestDate = DateTime.Now.Date;
+            //Converts the date to a string variable
+            string DateAdded = TestDate.ToString();
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            //Create instance of clsHardWare
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a test date variable to pass to the method
+            DateTime TestDate;
+            //Sets TestDate to todays date
+            TestDate = DateTime.Now.Date;
+            //Change the date to whatever date is 1 day before
+            TestDate = TestDate.AddDays(1);
+            //Converts the date to a string variable
+            string DateAdded = TestDate.ToString();
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Create a test date variable to pass to the method
+            DateTime TestDate;
+            //Sets TestDate to todays date
+            TestDate = DateTime.Now.Date;
+            //Change the date to whatever date is 100 years before
+            TestDate = TestDate.AddYears(100);
+            //Converts the date to a string variable
+            string DateAdded = TestDate.ToString();
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DataAddedInvalidData()
+        {
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a string variable to store an error message
+            String Error = "";
+            //Creates a string variable and sets it value to a non date value
+            string DateAdded = "This is not a date!";
+            //Invoke the validation method
+            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            //Test to see if an error has occured
+            Assert.AreNotEqual(Error, "");
         }
     }
 }

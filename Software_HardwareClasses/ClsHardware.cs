@@ -133,7 +133,64 @@ namespace Software_HardwareClasses
                 //Return false to indicate there is a problem
                 return false;
             }
+        }
 
+        //Invokes validation method
+        public string Valid(string HardWareID, string Name, string Description, string Price, string AmountInStock,
+                            string StockRequired, string DateAdded)
+        {
+            //Create a string variable to store an error message
+            String Error = "";
+            //Creates a temporary variable to store date values
+            DateTime DateTemp;
+            //If the ID number is blank
+            if (HardWareID.Length == 0)
+            {
+                //Record the error
+                Error = Error + "The HardWareID may not be blank: ";
+            }
+            //If the ID number is greater than 5
+            if (HardWareID.Length > 6)
+            {
+                //Record the error
+                Error = Error + "The HardWareID must be 6 characters or less: ";
+            }
+            //If the name is blank
+            if (Name.Length == 0)
+            {
+                //Record the error
+                Error = Error + "The Name may not be blank: ";
+            }
+            //If the Name is blank
+            if (Name.Length > 25)
+            {
+                //Record the error
+                Error = Error + "The name must be 25 characters or less";
+            }
+            try
+            {
+                //Copies the DateAdded variable to the DateTemp variable
+                DateTemp = Convert.ToDateTime(DateAdded);
+                //If the date given is in the past
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //Record the error
+                    Error = Error + "The date cannot be in the past: ";
+                }
+                //If the date given is in the future
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //Record the error
+                    Error = Error + "The date cannot be in the future: ";
+                }
+            }
+            catch
+            {
+                //Record the error
+                Error = Error + "The date was not a valid date: ";
+            }
+            //Return the error message
+            return Error;
         }
     }
 }

@@ -38,7 +38,6 @@ public partial class _Default : System.Web.UI.Page
         Session["hardware"] = hardware;
         //Redirect to the product page
         Response.Redirect("HardwareItem.aspx");
-
     }
 
     protected void CancelBtn_Click(object sender, EventArgs e)
@@ -63,17 +62,21 @@ public partial class _Default : System.Web.UI.Page
             //If the record is found
             if (Found == true)
             {
+                //Assigns the value in the clsHardware variable to the variable on the left
                 txtName.Text = hardware.Name;
                 txtDescription.Text = hardware.Description;
                 txtPrice.Text = hardware.Price.ToString();
                 txtAmountInStock.Text = hardware.AmountInStock.ToString();
                 txtStockRequired.Text = hardware.StockRequired.ToString();
                 txtDate.Text = hardware.DateAdded.ToString();
+                //Displays to the screen that the ID does exist
                 txtIDResult.Text = "Does exist!";
             }
             else
             {
+                //Displays to the screen that the ID does not exist
                 txtIDResult.Text = "Does not exist!";
+                //Clears all of the text boxes
                 txtName.Text = "";
                 txtDescription.Text = "";
                 txtPrice.Text = "";
