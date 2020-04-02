@@ -6,11 +6,18 @@
 <head runat="server">
     <title></title>
 </head>
-<body style="width: 480px; height: 532px">
+<body style="width: 480px; height: 545px">
     <form id="form1" runat="server">
         <p>
-            &nbsp;
-            Name:<asp:TextBox ID="txtName" runat="server" Height="16px" style="margin-left: 37px; margin-top: 19px" Width="253px"></asp:TextBox>
+            &nbsp; HardwareID:
+            <asp:TextBox ID="txtHardwareID" runat="server" Width="23px"></asp:TextBox>
+&nbsp;&nbsp;
+            <asp:Button ID="BtnFind" runat="server" OnClick="BtnFind_Click1" style="margin-left: 0px" Text="Find" />
+&nbsp;&nbsp;&nbsp; ID Number:
+            <asp:TextBox ID="txtIDResult" runat="server" ReadOnly="True" Width="136px"></asp:TextBox>
+        </p>
+        <p style="height: 41px; margin-top: 0px">
+            &nbsp; Name:<asp:TextBox ID="txtName" runat="server" Height="16px" style="margin-left: 37px; margin-top: 19px" Width="253px"></asp:TextBox>
         </p>
         <p>
             &nbsp;
@@ -28,7 +35,7 @@
         </p>
         <p>
 &nbsp; More Stock Required?:&nbsp;
-            <asp:CheckBox ID="stockbox" runat="server" />
+            <asp:TextBox ID="txtStockRequired" runat="server" Width="36px"></asp:TextBox>
         </p>
         <p>
             &nbsp;

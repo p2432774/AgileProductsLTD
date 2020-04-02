@@ -105,12 +105,12 @@ namespace Software_HardwareClasses
         }
 
         //Invokes the find method
-        public bool Find(int HardWareID)
+        public bool Find(Int32 HardwareID)
         {
             //Creates an instance of a data connection
             clsDataConnection DB = new clsDataConnection();
             //Add the parameter for the the HardWareID number to search for
-            DB.AddParameter("@HardWareID", HardWareID);
+            DB.AddParameter("@HardWareID", HardwareID);
             //Execute the stored procedure
             DB.Execute("sproc_tblHardWare_FilterByHardwareNo");
             //If one record is found execute the code below

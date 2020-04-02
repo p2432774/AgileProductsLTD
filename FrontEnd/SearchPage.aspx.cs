@@ -22,16 +22,18 @@ public partial class _Default : System.Web.UI.Page
     {
         //Create a new instance of clsHardware
         clsHardware hardware = new clsHardware();
+        //Captures the hardwareID number
+        hardware.HardwareID = Convert.ToInt32(txtHardwareID.Text);
         //Captures the products name
         hardware.Name = txtName.Text;
         //Captures the description
         hardware.Description = txtDescription.Text;
         //Captures the price 
-        hardware.Price = Int32.Parse(txtPrice.Text);
+        hardware.Price = Convert.ToInt32(txtPrice.Text);
         //Captures if the "MoreStockRequired" box was ticked
-        hardware.StockRequired = stockbox.Checked;
-        //Captures the date
-        hardware.DateAdded = DateTime.ParseExact(txtDate.Text, "dd/MM/yyyy", null);
+        hardware.StockRequired = Convert.ToBoolean(txtStockRequired.Text);
+        //Captures the date 
+        hardware.DateAdded = Convert.ToDateTime(txtDate.Text);
         //Stores the address in the session object
         Session["hardware"] = hardware;
         //Redirect to the product page
@@ -41,6 +43,44 @@ public partial class _Default : System.Web.UI.Page
 
     protected void CancelBtn_Click(object sender, EventArgs e)
     {
+        //Clears all text boxes and the check box
 
+    }
+
+    protected void BtnFind_Click1(object sender, EventArgs e)
+    {
+        //Creates an instance of clsHardware
+        clsHardware hardware = new clsHardware();
+        //Creates an Int32 variable to store the ID in
+        Int32 HardwareID;
+        //Creates a Boolean variable to store the result of the find operation
+        Boolean Found = false;
+        //Assigns the ID number given to the variable HardwareID but also checks to ensure an int was entered
+        if (int.TryParse(txtHardwareID.Text, out HardwareID))
+        { 
+            //Looks for the record
+            Found = hardware.Find(HardwareID);
+            //If the record is found
+            if (Found == true)
+            {
+                txtName.Text = hardware.Name;
+                txtDescription.Text = hardware.Description;
+                txtPrice.Text = hardware.Price.ToString();
+                txtAmountInStock.Text = hardware.AmountInStock.ToString();
+                txtStockRequired.Text = hardware.StockRequired.ToString();
+                txtDate.Text = hardware.DateAdded.ToString();
+                txtIDResult.Text = "Does exist!";
+            }
+            else
+            {
+                txtIDResult.Text = "Does not exist!";
+                txtName.Text = "";
+                txtDescription.Text = "";
+                txtPrice.Text = "";
+                txtAmountInStock.Text = "";
+                txtStockRequired.Text = "";
+                txtDate.Text = "";
+            }
+        }
     }
 }
