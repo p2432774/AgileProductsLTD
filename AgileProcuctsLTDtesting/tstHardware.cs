@@ -295,7 +295,7 @@ namespace AgileProcuctsLTDtesting
             //Creates a string variable to store an error message
             String Error = "";
             //Invoke the Validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -310,7 +310,7 @@ namespace AgileProcuctsLTDtesting
             //Creates a test string variable to pass to the method
             string Name = "";
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreNotEqual(Error, "");
         }
@@ -325,7 +325,7 @@ namespace AgileProcuctsLTDtesting
             //Creates a test string variable to pass to the method
             string Name = "a";
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -340,7 +340,7 @@ namespace AgileProcuctsLTDtesting
             //Creates a test string variable to pass to the method
             string Name = "aa";
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -356,7 +356,7 @@ namespace AgileProcuctsLTDtesting
             string Name = "";
             Name = Name.PadRight(24, 'a');
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -372,7 +372,7 @@ namespace AgileProcuctsLTDtesting
             string Name = "";
             Name = Name.PadRight(25, 'a');
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -388,7 +388,7 @@ namespace AgileProcuctsLTDtesting
             string Name = "";
             Name = Name.PadRight(13, 'a');
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -404,7 +404,7 @@ namespace AgileProcuctsLTDtesting
             string Name = "";
             Name = Name.PadRight(26, 'a');
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreNotEqual(Error, "");
         }
@@ -420,7 +420,7 @@ namespace AgileProcuctsLTDtesting
             string Name = "";
             Name = Name.PadRight(500, 'a');
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreNotEqual(Error, "");
         }
@@ -435,7 +435,7 @@ namespace AgileProcuctsLTDtesting
             //Creates a test string variable to pass to the method
             string Description = "";
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreNotEqual(Error, "");
         }
@@ -450,7 +450,7 @@ namespace AgileProcuctsLTDtesting
             //Creates a test string variable to pass to the method
             string Description = "a";
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -465,7 +465,7 @@ namespace AgileProcuctsLTDtesting
             //Creates a test string variable to pass to the method
             string Description = "aa";
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -481,7 +481,7 @@ namespace AgileProcuctsLTDtesting
             string Description = "";
             Description = Description.PadRight(99, 'a');
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -497,7 +497,7 @@ namespace AgileProcuctsLTDtesting
             string Description = "";
             Description = Description.PadRight(100, 'a');
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -513,7 +513,7 @@ namespace AgileProcuctsLTDtesting
             string Description = "";
             Description = Description.PadRight(50, 'a');
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -529,7 +529,7 @@ namespace AgileProcuctsLTDtesting
             string Description = "";
             Description = Description.PadRight(101, 'a');
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreNotEqual(Error, "");
         }
@@ -545,7 +545,7 @@ namespace AgileProcuctsLTDtesting
             string Description = "";
             Description = Description.PadRight(500, 'a');
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreNotEqual(Error, "");
         }
@@ -566,7 +566,7 @@ namespace AgileProcuctsLTDtesting
             //Converts the date to a string variable
             string DateAdded = TestDate.ToString();
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreNotEqual(Error, "");
         }
@@ -587,7 +587,7 @@ namespace AgileProcuctsLTDtesting
             //Converts the date to a string variable
             string DateAdded = TestDate.ToString();
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreNotEqual(Error, "");
         }
@@ -606,7 +606,7 @@ namespace AgileProcuctsLTDtesting
             //Converts the date to a string variable
             string DateAdded = TestDate.ToString();
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreEqual(Error, "");
         }
@@ -627,7 +627,7 @@ namespace AgileProcuctsLTDtesting
             //Converts the date to a string variable
             string DateAdded = TestDate.ToString();
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreNotEqual(Error, "");
         }
@@ -648,7 +648,7 @@ namespace AgileProcuctsLTDtesting
             //Converts the date to a string variable
             string DateAdded = TestDate.ToString();
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreNotEqual(Error, "");
         }
@@ -663,7 +663,7 @@ namespace AgileProcuctsLTDtesting
             //Creates a string variable and sets it value to a non date value
             string DateAdded = "This is not a date!";
             //Invoke the validation method
-            Error = hardware.Valid(HardWareID, Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+            Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
             //Test to see if an error has occured
             Assert.AreNotEqual(Error, "");
         }

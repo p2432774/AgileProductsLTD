@@ -136,7 +136,7 @@ namespace Software_HardwareClasses
         }
 
         //Invokes validation method
-        public string Valid(string HardWareID, string Name, string Description, string Price, string AmountInStock,
+        public string Valid(string Name, string Description, string Price, string AmountInStock,
                             string StockRequired, string DateAdded)
         {
             //Create a string variable to store an error message
