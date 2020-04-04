@@ -12,7 +12,6 @@ namespace Software_HardwareClasses
         private Int32 mAmountInStock;
         private Boolean mStockRequired;
         private DateTime mDateAdded;
-        private Boolean mActive;
 
         //Creates a variety of variables with getters and setters for each non-bool variable
         public Int32 HardwareID
@@ -90,17 +89,6 @@ namespace Software_HardwareClasses
             set
             {
                 mDateAdded = value;
-            }
-        }
-        public Boolean Active
-        {
-            get
-            {
-                return mActive;
-            }
-            set
-            {
-                mActive = value;
             }
         }
 

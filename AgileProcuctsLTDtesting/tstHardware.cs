@@ -105,19 +105,6 @@ namespace AgileProcuctsLTDtesting
 
         }
 
-        [TestMethod]
-        public void ActiveHardwareIDOK()
-        {
-            //Creates instance of clsHardware
-            clsHardware hardware = new clsHardware();
-            //Creates a boolean variable set to true
-            Boolean HardwareID = true;
-            //Assigns true to the Boolean variable Active
-            hardware.Active = HardwareID;
-            //Test to see if the result is correct
-            Assert.AreEqual(hardware.Active, HardwareID);
-        }
-
         //    FIND -- FIND -- FIND -- FIND -- FIND -- FIND -- FIND -- FIND -- FIND -- FIND   
 
         [TestMethod]
