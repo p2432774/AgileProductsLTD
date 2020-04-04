@@ -144,25 +144,25 @@ namespace Software_HardwareClasses
             //Creates a temporary variable to store date values
             DateTime DateTemp;
             //If the ID number is blank
-            if (HardWareID.Length == 0)
+            if (Name.Length == 0)
             {
                 //Record the error
                 Error = Error + "The HardWareID may not be blank: ";
             }
             //If the ID number is greater than 5
-            if (HardWareID.Length > 6)
+            if (Name.Length > 25)
             {
                 //Record the error
                 Error = Error + "The HardWareID must be 6 characters or less: ";
             }
             //If the name is blank
-            if (Name.Length == 0)
+            if (Description.Length == 0)
             {
                 //Record the error
                 Error = Error + "The Name may not be blank: ";
             }
             //If the Name is blank
-            if (Name.Length > 25)
+            if (Description.Length > 100)
             {
                 //Record the error
                 Error = Error + "The name must be 25 characters or less";
