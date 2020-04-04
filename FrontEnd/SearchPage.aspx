@@ -43,10 +43,13 @@
             <asp:TextBox ID="txtDate" runat="server" Width="68px"></asp:TextBox>
         &nbsp;(DD/MM/YYYY)</p>
         <p>
+            &nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblError" runat="server"></asp:Label>
             &nbsp;</p>
         <p>
             <asp:Button ID="OKBtn" runat="server" Text="OK" OnClick="OKBtn_Click" />
             <asp:Button ID="CancelBtn" runat="server" Text="Cancel" OnClick="CancelBtn_Click" />
+        &nbsp;&nbsp;&nbsp;
         </p>
     </form>
 </body>

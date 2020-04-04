@@ -22,28 +22,57 @@ public partial class _Default : System.Web.UI.Page
     {
         //Create a new instance of clsHardware
         clsHardware hardware = new clsHardware();
-        //Captures the hardwareID number
-        hardware.HardwareID = Convert.ToInt32(txtHardwareID.Text);
         //Captures the products name
-        hardware.Name = txtName.Text;
+        string Name = txtName.Text;
         //Captures the description
-        hardware.Description = txtDescription.Text;
+        string Description = txtDescription.Text;
         //Captures the price 
-        hardware.Price = Convert.ToInt32(txtPrice.Text);
-        //Captures if the "MoreStockRequired" box was ticked
-        hardware.StockRequired = Convert.ToBoolean(txtStockRequired.Text);
+        string Price = txtPrice.Text;
+        //Captures amount in stock
+        string AmountInStock = txtAmountInStock.Text;
+        //Captures if more stock is needed
+        string StockRequired = txtStockRequired.Text;
         //Captures the date 
-        hardware.DateAdded = Convert.ToDateTime(txtDate.Text);
-        //Stores the address in the session object
-        Session["hardware"] = hardware;
-        //Redirect to the product page
-        Response.Redirect("HardwareItem.aspx");
+        string DateAdded = txtDate.Text;
+        //Creates a string variable to store an error message
+        string Error = "";
+        //Validate the data
+        Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
+        if (Error == "")
+        {
+            //Captures the products name
+            hardware.Name = txtName.Text;
+            //Captures the description
+            hardware.Description = txtDescription.Text;
+            //Captures the price 
+            hardware.Price = Convert.ToInt32(txtPrice.Text);
+            //Captures amount in stock
+            hardware.AmountInStock = Convert.ToInt32(txtAmountInStock.Text);
+            //Captures if the "MoreStockRequired" box was ticked
+            hardware.StockRequired = Convert.ToBoolean(txtStockRequired.Text);
+            //Captures the date 
+            hardware.DateAdded = Convert.ToDateTime(txtDate.Text);
+            Session["hardware"] = hardware;
+            //Redirect to the product page
+            Response.Redirect("HardwareItem.aspx");
+        }
+        else
+        {
+            //Displays the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void CancelBtn_Click(object sender, EventArgs e)
     {
-        //Clears all text boxes and the check box
-
+        //Clears all text boxes 
+        txtHardwareID.Text = "";
+        txtName.Text = "";
+        txtDescription.Text = "";
+        txtPrice.Text = "";
+        txtAmountInStock.Text = "";
+        txtStockRequired.Text = "";
+        txtDate.Text = "";
     }
 
     protected void BtnFind_Click1(object sender, EventArgs e)
