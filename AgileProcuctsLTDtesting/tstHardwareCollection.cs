@@ -88,5 +88,64 @@ namespace AgileProcuctsLTDtesting
             //Test to see if the result is correct
             Assert.AreEqual(hardwareCollection.Count, hardwareList.Count);
         }
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //Create instance of clsHardwareCollection
+            clsHardwareCollection hardwareCollection = new clsHardwareCollection();
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a primary key ID 
+            Int32 PrimaryKey = 0;
+            //Sets the properties
+            hardware.HardwareID = 1;
+            hardware.Name = "SecondName";
+            hardware.Description = "This is a description";
+            hardware.Price = 175;
+            hardware.AmountInStock = 5;
+            hardware.StockRequired = true;
+            hardware.DateAdded = DateTime.Now.Date;
+            //Assigns the data to the ThisHardwareProduct 
+            hardwareCollection.ThisHardwareProduct = hardware;
+            //Adds the record
+            PrimaryKey = hardwareCollection.Add();
+            //Sets the primary key for the data
+            hardware.HardwareID = PrimaryKey;
+            //Find the record
+            hardwareCollection.ThisHardwareProduct.Find(PrimaryKey);
+            //Test to see if the result is correct
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //Create instance of clsHardwareCollection
+            clsHardwareCollection hardwareCollection = new clsHardwareCollection();
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a primary key ID 
+            Int32 PrimaryKey = 0;
+            //Sets the properties
+            hardware.HardwareID = 1;
+            hardware.Name = "SecondName";
+            hardware.Description = "This is a description";
+            hardware.Price = 175;
+            hardware.AmountInStock = 5;
+            hardware.StockRequired = true;
+            hardware.DateAdded = DateTime.Now.Date;
+            //Assigns the data to the ThisHardwareProduct 
+            hardwareCollection.ThisHardwareProduct = hardware;
+            //Adds the record
+            PrimaryKey = hardwareCollection.Add();
+            //Sets the primary key for the data
+            hardware.HardwareID = PrimaryKey;
+            //Finds the record
+            hardwareCollection.Delete();
+            //Now find the record
+            Boolean Found = hardwareCollection.ThisHardwareProduct.Find(PrimaryKey);
+            //Test to see if it is found
+            Assert.IsFalse(Found);
+        }
     }
 }

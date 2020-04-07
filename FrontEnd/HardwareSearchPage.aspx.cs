@@ -52,9 +52,14 @@ public partial class _Default : System.Web.UI.Page
             hardware.StockRequired = Convert.ToBoolean(txtStockRequired.Text);
             //Captures the date 
             hardware.DateAdded = Convert.ToDateTime(txtDate.Text);
-            Session["hardware"] = hardware;
+            //Creates instance of clsHardwareCollection
+            clsHardwareCollection hardwareCollection = new clsHardwareCollection();
+            //Sets the ThisHardwareProduct properties
+            hardwareCollection.ThisHardwareProduct = hardware;
+            //Adds the record
+            hardwareCollection.Add();
             //Redirect to the product page
-            Response.Redirect("HardwareItem.aspx");
+            Response.Redirect("HardwareList.aspx");
         }
         else
         {
