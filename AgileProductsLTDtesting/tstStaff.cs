@@ -47,6 +47,8 @@ namespace AgileProductsLTDtesting
             Assert.AreEqual(AnStaff.DateOfBirth, TestData);
 
         }
+
+
         [TestMethod]
         public void StaffFirstnameAndLastnamePropertyOK()
         {
@@ -144,13 +146,84 @@ namespace AgileProductsLTDtesting
             Boolean OK = true;
             int StaffID = 1;
             Found = AnStaff.Find(StaffID);
-            if (AnStaff.DateOfBirth != Convert.ToDateTime("30/03/1980"))
+            if (AnStaff.DateOfBirth != Convert.ToDateTime("03/30/1980"))
             {
                 OK = false;
             }
             Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffDateOfBirthMinLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(30 / 12 / 1930);
+            string DateOfBirth = TestDate.ToString();
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
 
         }
+
+        [TestMethod]
+        public void TestStaffDateOfBirthMin()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date; ;
+            TestDate = TestDate.AddDays(31/12/1930);
+            string DateOfBirth = TestDate.ToString();
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber );
+
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void TestStaffDateOfBirthMinPlusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date; ;
+            TestDate = TestDate.AddDays(01/01/1931);
+            string DateOfBirth = TestDate.ToString();
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStaffDateOfBirthMaxLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-1);
+            string DateOfBirth = TestDate.ToString();
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void TestStaffDateOfBirthExtremeMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(+1);
+            string DateOfBirth = TestDate.ToString();
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+        }
+    }
         [TestMethod]
         public void TestDepartmentFound()
         {
@@ -219,7 +292,7 @@ namespace AgileProductsLTDtesting
             Boolean OK = true;
             int StaffID = 1;
             Found = AnStaff.Find(StaffID);
-            if (AnStaff.PermissionToChangeOrAdd != true)
+            if (AnStaff.PermissionToChangeOrAdd != false)
             {
                 OK = false;
             }

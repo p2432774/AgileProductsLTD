@@ -122,7 +122,9 @@ namespace Software_HardwareClasses
 
         public string Valid(string phoneNumber, string dateOfBirth, string staffFirstnameAndLastname, string streetAddress, string department)
         {
-            return "";
+            String Error = "";
+            DateTime DateTemp;
+            if ()
         }
         // public string Valid(string PhoneNumber, DateTime DateOfBirth, string StaffFirstnameAndLastname, string StreetAddress, string Department)
 
