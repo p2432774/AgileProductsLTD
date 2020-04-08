@@ -188,5 +188,40 @@ namespace AgileProcuctsLTDtesting
             //Test to see if the result is correct
             Assert.AreEqual(hardwareCollection.ThisHardwareProduct, hardware);
         }
+
+        [TestMethod]
+        public void FilterByPriceMethodOK()
+        {
+            //Creates instance of clsHardwareCollection
+            clsHardwareCollection FilterBy = new clsHardwareCollection();
+            FilterBy.FilterByPrice(175);
+            //Test to see if the result is correct
+            Assert.AreEqual(1, FilterBy.Count);
+        }
+
+        [TestMethod]
+        public void FilterByPriceDataFound()
+        {
+            //Creates instance of clsHardwareCollection
+            clsHardwareCollection hardwareCollection = new clsHardwareCollection();
+            //Creates a Boolean variable to store the outcome 
+            Boolean OK = true;
+            //Apply a test price
+            hardwareCollection.FilterByPrice(175);
+            //Check if any record matches the price
+            if (hardwareCollection.Count == 1)
+            {
+                if (hardwareCollection.HardwareProductList[0].HardwareID != 5)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //Test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
     }
 }

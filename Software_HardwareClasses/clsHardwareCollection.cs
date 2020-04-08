@@ -8,20 +8,28 @@ namespace Software_HardwareClasses
         //Creates a constructor
         public clsHardwareCollection()
         {
-            //Creates Int32 variable to store the index number
-            Int32 Index = 0;
-            //Creates a Int32 variable to count the records
-            Int32 RecordCount = 0;
-            //Creates object for the data connection                                                                                                                                                                                            
+            //Creates instance of a data connection
             clsDataConnection DB = new clsDataConnection();
-            //Execute the stored procedure
+            //Execute the procedure
             DB.Execute("sproc_tblHardWare_SelectAll");
+            //Populate the array list with the data table
+            PopulateArray(DB);          
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //Creates a Int32 variable to store the index
+            Int32 Index = 0;
+            //Creates a Int32 variable to store the count
+            Int32 RecordCount;
             //Get the record count
-            RecordCount = DB.Count; 
-            //Whilst there are records to process
-            while ( Index < RecordCount )
+            RecordCount = DB.Count;
+            //Clear the private array list
+            mHardwareProductList = new List<clsHardware>();
+            ////Whilst there are records to process
+            if (Index < RecordCount)
             {
-                //Creates blank instance of clsHardware
+                //Creates instance of clsHardware
                 clsHardware hardware = new clsHardware();
                 //Sets the properties
                 hardware.HardwareID = Convert.ToInt32(DB.DataTable.Rows[Index]["HardWareID"]);
@@ -31,9 +39,9 @@ namespace Software_HardwareClasses
                 hardware.AmountInStock = Convert.ToInt32(DB.DataTable.Rows[Index]["AmountInStock"]);
                 hardware.StockRequired = Convert.ToBoolean(DB.DataTable.Rows[Index]["StockRequired"]);
                 hardware.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
-                //Add the item to the list
+                //Add the record to the private data member
                 mHardwareProductList.Add(hardware);
-                //Points to the next indexed value
+                //Point to the next indexed product
                 Index++;
             }
         }
@@ -63,6 +71,7 @@ namespace Software_HardwareClasses
                 mThisHardwareProduct = value;
             }
         }
+
         public int Count
         {
             get
@@ -114,6 +123,18 @@ namespace Software_HardwareClasses
             DB.AddParameter("@DateAdded", mThisHardwareProduct.DateAdded);
             //Execute the procedure
             DB.Execute("sproc_tblHardWare_Update");
+        }
+
+        public void FilterByPrice(Int32 Price)
+        {
+            //Creates instance of a data connection
+            clsDataConnection DB = new clsDataConnection();
+            //Sets the parameter for the stored procedure
+            DB.AddParameter("@Price", Price);
+            //Execute the procedure
+            DB.Execute("sproc_tblHardware_FilterByPrice");
+            //Populate the array list with the data table
+            PopulateArray(DB);
         }
     }
 }

@@ -4,6 +4,7 @@ namespace Software_HardwareClasses
 {
     public class clsHardware
     {
+
         //Creates a variety of Data members for each non-bool variable
         private Int32 mHardWareID;
         private string mName;

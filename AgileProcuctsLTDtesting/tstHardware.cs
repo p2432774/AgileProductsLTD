@@ -332,7 +332,7 @@ namespace AgileProcuctsLTDtesting
             Assert.AreEqual(Error, "");
         }
 
-        [TestMethod]
+          [TestMethod]
         public void NameMaxLessOne()
         {
             //Creates instance of clsHardware

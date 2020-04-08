@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Software_HardwareClasses;
 
 public partial class HardwareList : System.Web.UI.Page
 {
@@ -19,9 +20,9 @@ public partial class HardwareList : System.Web.UI.Page
     void DisplayProducts()
     {
         //Creates instance of the clsHardwareCollection
-        Software_HardwareClasses.clsHardwareCollection HardwareProducts = new Software_HardwareClasses.clsHardwareCollection();
+        clsHardwareCollection hardwareCollection = new clsHardwareCollection();
         //Sets the data source to the list of hardware products in the collection
-        lstHardwareList.DataSource = HardwareProducts.HardwareProductList;
+        lstHardwareList.DataSource = hardwareCollection.HardwareProductList;
         //Sets the name of the primary key
         lstHardwareList.DataValueField = "HardwareID";
         //Sets the data field to display
@@ -81,5 +82,35 @@ public partial class HardwareList : System.Web.UI.Page
         {
             lblError.Text = "Please select a record to edit from the list";
         }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //Creates instance of clsHardwareCollection
+        clsHardwareCollection hardwareCollection = new clsHardwareCollection();
+        hardwareCollection.FilterByPrice(Convert.ToInt32(txtPriceInput.Text));
+        lstHardwareList.DataSource = hardwareCollection.HardwareProductList;
+        //Set the name of the primary key
+        lstHardwareList.DataValueField = "HardwareID";
+        //Set the name of the field to display
+        lstHardwareList.DataTextField = "Name";
+        //Bind the data to the list
+        lstHardwareList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //Creates instance of clsHardwareCollection
+        clsHardwareCollection hardwareCollection = new clsHardwareCollection();
+        hardwareCollection.FilterByPrice(0);
+        //Clear the text box to tidy up the interface
+        txtPriceInput.Text = "";
+        lstHardwareList.DataSource = hardwareCollection.HardwareProductList;
+        //Set the name of the primary key
+        lstHardwareList.DataValueField = "HardwareID";
+        //Set the name of the field to display
+        lstHardwareList.DataTextField = "Name";
+        //Bind the data to the list
+        lstHardwareList.DataBind();
     }
 }
