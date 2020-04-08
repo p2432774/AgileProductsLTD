@@ -12,6 +12,7 @@
             <asp:ListBox ID="lstHardwareList" runat="server" Height="273px" OnSelectedIndexChanged="lstHardwareList_SelectedIndexChanged" Width="436px"></asp:ListBox>
             <br />
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
+            <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
             <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
             <br />
             <br />

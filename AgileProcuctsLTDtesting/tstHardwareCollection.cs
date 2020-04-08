@@ -147,5 +147,46 @@ namespace AgileProcuctsLTDtesting
             //Test to see if it is found
             Assert.IsFalse(Found);
         }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //Creates instance of clsHardwareCollection
+            clsHardwareCollection hardwareCollection = new clsHardwareCollection();
+            //Creates instance of clsHardware
+            clsHardware hardware = new clsHardware();
+            //Creates a primary key ID 
+            Int32 PrimaryKey = 0;
+            //Sets the properties
+            hardware.HardwareID = 1;
+            hardware.Name = "FirstName";
+            hardware.Description = "This is a description";
+            hardware.Price = 175;
+            hardware.AmountInStock = 5;
+            hardware.StockRequired = true;
+            hardware.DateAdded = DateTime.Now.Date;
+            //Sets ThisHardwareProduct to the data
+            hardwareCollection.ThisHardwareProduct = hardware;
+            //Adds the record
+            PrimaryKey = hardwareCollection.Add();
+            //Set the primary key of the test data
+            hardware.HardwareID = PrimaryKey;
+            //Modify the properties
+            hardware.HardwareID = 1;
+            hardware.Name = "SecondName";
+            hardware.Description = "This is a second description";
+            hardware.Price = 200;
+            hardware.AmountInStock = 10;
+            hardware.StockRequired = false;
+            hardware.DateAdded = DateTime.Now.Date;
+            //Set the record based on the new data
+            hardwareCollection.ThisHardwareProduct = hardware;
+            //Update the record
+            hardwareCollection.Update();
+            //Find the primary key
+            hardwareCollection.ThisHardwareProduct.Find(PrimaryKey);
+            //Test to see if the result is correct
+            Assert.AreEqual(hardwareCollection.ThisHardwareProduct, hardware);
+        }
     }
 }

@@ -99,5 +99,21 @@ namespace Software_HardwareClasses
             //Execute the procedure
             DB.Execute("sproc_tblHardWare_Delete");
         }
+
+        public void Update()
+        {
+            //Creates instance of a data connection
+            clsDataConnection DB = new clsDataConnection();
+            //Sets parameters for the stored procedure
+            DB.AddParameter("@HardwareID", mThisHardwareProduct.HardwareID);
+            DB.AddParameter("@Name", mThisHardwareProduct.Name);
+            DB.AddParameter("@Description", mThisHardwareProduct.Description);
+            DB.AddParameter("@Price", mThisHardwareProduct.Price);
+            DB.AddParameter("@AmountInStock", mThisHardwareProduct.AmountInStock);
+            DB.AddParameter("@StockRequired", mThisHardwareProduct.StockRequired);
+            DB.AddParameter("@DateAdded", mThisHardwareProduct.DateAdded);
+            //Execute the procedure
+            DB.Execute("sproc_tblHardWare_Update");
+        }
     }
 }

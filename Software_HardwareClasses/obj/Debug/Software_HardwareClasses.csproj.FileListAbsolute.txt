@@ -10,3 +10,9 @@ B:\Programming\GitHub Repositories\AgileProductsLTD\Software_HardwareClasses\obj
 B:\Programming\GitHub Repositories\AgileProductsLTD\Software_HardwareClasses\obj\Debug\Software_HardwareClasses.csproj.CoreCompileInputs.cache
 B:\Programming\GitHub Repositories\AgileProductsLTD\Software_HardwareClasses\obj\Debug\Software_HardwareClasses.dll
 B:\Programming\GitHub Repositories\AgileProductsLTD\Software_HardwareClasses\obj\Debug\Software_HardwareClasses.pdb
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\Software_HardwareClasses\bin\Debug\Software_HardwareClasses.dll
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\Software_HardwareClasses\bin\Debug\Software_HardwareClasses.pdb
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\Software_HardwareClasses\obj\Debug\Software_HardwareClasses.csprojAssemblyReference.cache
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\Software_HardwareClasses\obj\Debug\Software_HardwareClasses.csproj.CoreCompileInputs.cache
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\Software_HardwareClasses\obj\Debug\Software_HardwareClasses.dll
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\Software_HardwareClasses\obj\Debug\Software_HardwareClasses.pdb

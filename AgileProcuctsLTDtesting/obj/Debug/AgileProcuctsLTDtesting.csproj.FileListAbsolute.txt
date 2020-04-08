@@ -30,3 +30,19 @@ B:\Programming\GitHub Repositories\AgileProductsLTD\AgileProcuctsLTDtesting\obj\
 B:\Programming\GitHub Repositories\AgileProductsLTD\AgileProcuctsLTDtesting\obj\Debug\AgileProcuctsLTDtesting.csproj.CopyComplete
 B:\Programming\GitHub Repositories\AgileProductsLTD\AgileProcuctsLTDtesting\obj\Debug\AgileProcuctsLTDtesting.dll
 B:\Programming\GitHub Repositories\AgileProductsLTD\AgileProcuctsLTDtesting\obj\Debug\AgileProcuctsLTDtesting.pdb
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\bin\Debug\AgileProcuctsLTDtesting.dll
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\bin\Debug\AgileProcuctsLTDtesting.pdb
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\bin\Debug\Software_HardwareClasses.dll
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\bin\Debug\Software_HardwareClasses.pdb
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\obj\Debug\AgileProcuctsLTDtesting.csprojAssemblyReference.cache
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\obj\Debug\AgileProcuctsLTDtesting.csproj.CoreCompileInputs.cache
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\obj\Debug\AgileProcuctsLTDtesting.csproj.CopyComplete
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\obj\Debug\AgileProcuctsLTDtesting.dll
+B:\Programming\GitHub Repositories\AgileProductsLTD - NEW\AgileProductsLTD\AgileProcuctsLTDtesting\obj\Debug\AgileProcuctsLTDtesting.pdb

@@ -47,7 +47,7 @@ public partial class HardwareList : System.Web.UI.Page
     {
         //Creates a Int32 variable to store the primary key to be deleted
         Int32 HardwareID;
-        //If a record has been select from the list
+        //If a record has been selected from the list
         if (lstHardwareList.SelectedIndex != -1)
         {
             //Get the primary key of the record to delete
@@ -60,6 +60,26 @@ public partial class HardwareList : System.Web.UI.Page
         else //If no record is selected
         {
             lblError.Text = "Please select a record to delete from the list";
+        }
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        //Creates a Int32 variable to store the primary key to be deleted
+        Int32 HardwareID;
+        //If a record has been selected from the list
+        if (lstHardwareList.SelectedIndex != -1)
+        {
+            //Get the primary key of the record to delete
+            HardwareID = Convert.ToInt32(lstHardwareList.SelectedValue);
+            //Store the data in the session object
+            Session["hardware"] = HardwareID;
+            //Redirect to the HardwareSearchPage
+            Response.Redirect("HardwareSearchPage.aspx");
+        }
+        else //If no record is selected
+        {
+            lblError.Text = "Please select a record to edit from the list";
         }
     }
 }

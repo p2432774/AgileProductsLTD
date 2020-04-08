@@ -8,9 +8,35 @@ using Software_HardwareClasses;
 
 public partial class _Default : System.Web.UI.Page
 {
+    Int32 HardwareID;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+        //Get the primary key for the record to be editted from the session object
+        HardwareID = Convert.ToInt32(Session["hardware"]);
+        if (IsPostBack == false)
+        {
+            if (HardwareID != -1)
+            {
+                DisplayProducts();
+            }
+        }
+    }
+
+    void DisplayProducts()
+    {
+        //Creates instance of clsHardwareCollection
+        clsHardwareCollection hardwareCollection = new clsHardwareCollection();
+        //Find the record to update
+        hardwareCollection.ThisHardwareProduct.Find(HardwareID);
+        //Display the data on the record 
+        txtHardwareID.Text = hardwareCollection.ThisHardwareProduct.HardwareID.ToString();
+        txtName.Text = hardwareCollection.ThisHardwareProduct.Name;
+        txtDescription.Text = hardwareCollection.ThisHardwareProduct.Description;
+        txtPrice.Text = hardwareCollection.ThisHardwareProduct.Price.ToString();
+        txtAmountInStock.Text = hardwareCollection.ThisHardwareProduct.AmountInStock.ToString();
+        txtStockRequired.Text = hardwareCollection.ThisHardwareProduct.StockRequired.ToString();
+        txtDate.Text = hardwareCollection.ThisHardwareProduct.DateAdded.ToString();
     }
 
     protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
@@ -40,6 +66,8 @@ public partial class _Default : System.Web.UI.Page
         Error = hardware.Valid(Name, Description, Price, AmountInStock, StockRequired, DateAdded);
         if (Error == "")
         {
+            //Captures the HardwareID
+            hardware.HardwareID = HardwareID;
             //Captures the products name
             hardware.Name = txtName.Text;
             //Captures the description
@@ -54,11 +82,24 @@ public partial class _Default : System.Web.UI.Page
             hardware.DateAdded = Convert.ToDateTime(txtDate.Text);
             //Creates instance of clsHardwareCollection
             clsHardwareCollection hardwareCollection = new clsHardwareCollection();
-            //Sets the ThisHardwareProduct properties
-            hardwareCollection.ThisHardwareProduct = hardware;
-            //Adds the record
-            hardwareCollection.Add();
-            //Redirect to the product page
+
+            if (HardwareID == -1)
+            {
+                //Sets the product
+                hardwareCollection.ThisHardwareProduct = hardware;
+                //Adds the record
+                hardwareCollection.Add();
+            }
+            else
+            {
+                //Find the record to update
+                hardwareCollection.ThisHardwareProduct.Find(HardwareID);
+                //Sets the product
+                hardwareCollection.ThisHardwareProduct = hardware;
+                //Update the record
+                hardwareCollection.Update();
+            }
+            //Redirect back to the list page
             Response.Redirect("HardwareList.aspx");
         }
         else

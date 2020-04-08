@@ -12,7 +12,7 @@ public partial class DeleteHardware : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Gets the number of the product to be deleted from the session object
+        //Gets the primary key of the record to be deleted from the session object
         HardwareID = Convert.ToInt32(Session["hardware"]);
         Response.Write(HardwareID);
     }
