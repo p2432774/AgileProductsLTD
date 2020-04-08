@@ -39,7 +39,7 @@ namespace Software_HardwareClasses
         }
 
         private List<clsHardware> mHardwareProductList = new List<clsHardware>();
-        private clsHardware mThisHardwareProduct;
+        private clsHardware mThisHardwareProduct = new clsHardware();
 
         public List<clsHardware> HardwareProductList
         {
