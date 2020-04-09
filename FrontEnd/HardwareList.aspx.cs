@@ -100,17 +100,6 @@ public partial class HardwareList : System.Web.UI.Page
 
     protected void btnClear_Click(object sender, EventArgs e)
     {
-        //Creates instance of clsHardwareCollection
-        clsHardwareCollection hardwareCollection = new clsHardwareCollection();
-        hardwareCollection.FilterByPrice(0);
-        //Clear the text box to tidy up the interface
         txtPriceInput.Text = "";
-        lstHardwareList.DataSource = hardwareCollection.HardwareProductList;
-        //Set the name of the primary key
-        lstHardwareList.DataValueField = "HardwareID";
-        //Set the name of the field to display
-        lstHardwareList.DataTextField = "Name";
-        //Bind the data to the list
-        lstHardwareList.DataBind();
     }
 }

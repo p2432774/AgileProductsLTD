@@ -5,6 +5,7 @@ namespace Software_HardwareClasses
 {
     public class clsHardwareCollection
     {
+        Int32 count;
         //Creates a constructor
         public clsHardwareCollection()
         {
@@ -26,8 +27,7 @@ namespace Software_HardwareClasses
             RecordCount = DB.Count;
             //Clear the private array list
             mHardwareProductList = new List<clsHardware>();
-            ////Whilst there are records to process
-            if (Index < RecordCount)
+            while (Index < RecordCount)
             {
                 //Creates instance of clsHardware
                 clsHardware hardware = new clsHardware();
