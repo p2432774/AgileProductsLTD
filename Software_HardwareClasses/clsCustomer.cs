@@ -4,36 +4,142 @@ namespace Software_HardwareClasses
 {
     public class clsCustomer
     {
-        public bool member { get; set; }
-        public string Sortcode { get; set; }
-        public string Email { get; set; }
-        public string Address { get; set; }
-        public string Name { get; set; }
-        public string FullName { get; set; }
-        public string Emailaddress { get; set; }
-        public int Cardnumber { get; set; }
-        public object Customer { get; set; }
+       // public object Customer { get; set; }
+       // public string Email { get; set; }
+       // public string Name { get; set; }
+       // public DateTime DOB { get; set; }
 
-        //CustomerID private member variable
+
+
+        private int mCustomerID;
         public int CustomerID
         {
             get
-            {
-                //this line of code sends data out of the property
-                return CustomerID;
+            {                
+                return mCustomerID;
             }
             set
             {
-                //this line of code allows data into the property
-                CustomerID = value;
+                mCustomerID = value;
             }
         }
-        public object DOB { get; set; }
+
+
+        private bool mmember;
+        public bool member
+        {
+            get
+            {
+                return mmember;
+            }
+            set
+            {
+                mmember = value;
+            }
+        }
+
+
+        private string mSortcode;
+        public string Sortcode
+        {
+            get
+            {
+                return mSortcode;
+            }
+            set
+            {
+                mSortcode = value;
+            }
+        }
+
+
+        private string mFullName;
+        public string FullName
+        {
+            get
+            {
+                return mFullName;
+            }
+            set
+            {
+                mFullName = value;
+            }
+        }
+
+
+        private int mCardnumber;
+        public int Cardnumber
+        {
+            get
+            {
+                return mCardnumber;
+            }
+            set
+            {
+                mCardnumber = value;
+            }
+        }
+
+
+        private string mEmailaddress;
+        public string Emailaddress
+        {
+            get
+            {
+                return mEmailaddress;
+            }
+            set
+            {
+                mEmailaddress = value;
+            }
+        }
+
+
+        private string mAddress;
+        public string Address
+        {
+            get
+            {
+                return mAddress;
+            }
+            set
+            {
+                mAddress = value;
+            }
+        }
+
+
+        private DateTime mDOB;
+        public DateTime DOB
+        {
+            get
+            {
+                return mDOB;
+            }
+            set
+            {
+                mDOB = value;
+            }
+        }
+
+        //FIND FUNCTIONS
+
+   
 
         public bool Find(int customerID)
         {
             //set the private data members to the dtest data value
             CustomerID = 21;
+            mmember = true;
+            mEmailaddress = "declan1998m@gmail.com";
+            mFullName = "Declan Monaghan";
+            mSortcode = "12 - 34 - 56";
+            mCardnumber = 123456789;
+            mAddress = "16 westadale court leicester le3 0gj";
+            mDOB = Convert.ToDateTime("15/04/1998"); 
+
+
+
             //always return true
             return true;
         }

@@ -144,9 +144,78 @@ namespace AgileProductsLTDtesting
             }
             //test to see tyhat the result is correct
             Assert.IsTrue(OK);
-
         }
 
+
+        [TestMethod]
+        public void TestAddressFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to score the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int16 CustomerID = 21;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check sortcode
+            if (AnCustomer.Address != ("16 westadale court leicester le3 0gj"))
+            {
+                OK = false;
+            }
+            //test to see tyhat the result is correct
+            Assert.IsTrue(Found);
+        }
+
+
+        [TestMethod]
+        public void TestMemberFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to score the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int16 CustomerID = 21;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            if (AnCustomer.member != true)
+            {
+                OK = false;
+            }
+            //test to see tyhat the result is correct
+            Assert.IsTrue(Found);
+        }
+
+
+
+        [TestMethod]
+        public void TestCardnumberFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to score the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int16 CustomerID = 21;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            if (AnCustomer.Cardnumber != 123456789)
+            {
+                OK = false;
+            }
+            //test to see tyhat the result is correct
+            Assert.IsTrue(Found);
+        }
+
+
+        [TestMethod]
         public void TestDOBFound()
         {
             //create an instance of the class we want to create
@@ -159,14 +228,61 @@ namespace AgileProductsLTDtesting
             Int16 CustomerID = 21;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
-            //check the DOB
-            if (AnCustomer.DOB != Convert.ToDateTime("15/04/1998"))
+            //check DOB
+            if (AnCustomer.DOB != Convert.ToDateTime("15 / 04 / 1998"))
             {
                 OK = false;
             }
             //test to see tyhat the result is correct
-            Assert.IsTrue(OK);
-
+            Assert.IsTrue(Found);
         }
+
+
+        [TestMethod]
+        public void TestSortcodeFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to score the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int16 CustomerID = 21;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check sortcode
+            if (AnCustomer.Sortcode != ("12-34-56"))
+            {
+                OK = false;
+            }
+            //test to see tyhat the result is correct
+            Assert.IsTrue(Found);
+        }
+
+
+
+        [TestMethod]
+        public void TestEmailaddressFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to score the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int16 CustomerID = 21;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check sortcode
+            if (AnCustomer.Emailaddress != ("Declan1998m@gmail.com"))
+            {
+                OK = false;
+            }
+            //test to see tyhat the result is correct
+            Assert.IsTrue(Found);
+        }
+
     }
 }

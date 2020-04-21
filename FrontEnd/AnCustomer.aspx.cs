@@ -8,9 +8,7 @@ using System.Web.UI.WebControls;
 
 public partial class AnCustomer : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-    }
+    
 
     protected void OK_Click(object sender, EventArgs e)
     {
@@ -36,6 +34,8 @@ public partial class AnCustomer : System.Web.UI.Page
         //redirect to the viewer page
         Response.Write("CustomerViewer.aspx");
 
+        Session["AnCustomer"] = AnCustomer;
+        Response.Redirect("CustomerViewer.aspx");
     }
 
     protected void txtCardumber_TextChanged(object sender, EventArgs e)

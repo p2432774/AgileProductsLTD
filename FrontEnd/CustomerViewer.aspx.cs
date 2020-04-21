@@ -16,5 +16,18 @@ public partial class CustomerViewer : System.Web.UI.Page
         AnCustomer = (clsCustomer)Session["AnCustomer"];
         //display the Customer for this entry
         Response.Write(AnCustomer.CustomerID);
+        //display the name for entry
+        Response.Write(AnCustomer.FullName);
+        //display DOB for entry
+        Response.Write(AnCustomer.DOB);
+        //diplay address for entry
+        Response.Write(AnCustomer.Emailaddress);
+        //display email for entry
+        Response.Write(AnCustomer.Emailaddress);
+        //display sort code for entry
+        Response.Write(AnCustomer.Sortcode);
+        //display card number for entry
+        Response.Write(AnCustomer.Cardnumber);
     }
+
 }
