@@ -7,6 +7,10 @@ namespace AgileProductsLTDtesting
     [TestClass]
     public class tstCustomer
     {
+
+        // OK TESTS
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -14,6 +18,20 @@ namespace AgileProductsLTDtesting
             clsCustomer AnCustomer = new clsCustomer();
             //test to see that it exsists
             Assert.IsNotNull(AnCustomer);
+        }
+
+
+        [TestMethod]
+        public void CustomerIDOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //create some test data to assign to the property
+            Int16 TestData = 1;
+            //assign the data to the property
+            AnCustomer.CustomerID = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnCustomer.CustomerID, TestData);
         }
 
 
@@ -95,18 +113,6 @@ namespace AgileProductsLTDtesting
             Assert.AreEqual(AnCustomer.Cardnumber, TestData);
         }
 
-        [TestMethod]
-        public void CustomerIDOK()
-        {
-            //create an instance of the class we want to create
-            clsCustomer AnCustomer = new clsCustomer();
-            //create some test data to assign to the property
-            Int16 TestData = 2;
-            //assign the data to the property
-            AnCustomer.CustomerID = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AnCustomer.CustomerID, TestData);
-        }
 
         [TestMethod]
         public void FindMethodOK()
@@ -114,15 +120,19 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //boolean variable to score the result of the validation
-            Boolean Found = false;
+            Boolean Found = true;
             //acreate some test data to use wit the method
-            Int16 CustomerID = 1;
+            Int16 CustomerID = 1;        
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //test to see that the result is correct
             Assert.IsTrue(Found);
 
         }
+
+
+        
+        //FOUND TESTS
 
         [TestMethod]
         public void TestCustomerIDFound()
@@ -134,11 +144,11 @@ namespace AgileProductsLTDtesting
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int16 CustomerID = 21;
+            Int16 CustomerID = 1;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check the customer no
-            if (AnCustomer.CustomerID != 21)
+            if (AnCustomer.CustomerID != 1)
             {
                 OK = false;
             }
@@ -157,11 +167,11 @@ namespace AgileProductsLTDtesting
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int16 CustomerID = 21;
+            Int16 CustomerID = 1;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check sortcode
-            if (AnCustomer.Address != ("16 westadale court leicester le3 0gj"))
+            if (AnCustomer.Address != ("8 b abbotham road bideford ex393aq"))
             {
                 OK = false;
             }
@@ -180,10 +190,10 @@ namespace AgileProductsLTDtesting
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int16 CustomerID = 21;
+            Int16 CustomerID = 1;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
-            if (AnCustomer.member != true)
+            if (AnCustomer.member != false)
             {
                 OK = false;
             }
@@ -203,7 +213,7 @@ namespace AgileProductsLTDtesting
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int16 CustomerID = 21;
+            Int16 CustomerID = 1;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             if (AnCustomer.Cardnumber != 123456789)
@@ -225,11 +235,11 @@ namespace AgileProductsLTDtesting
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int16 CustomerID = 21;
+            Int16 CustomerID = 1;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check DOB
-            if (AnCustomer.DOB != Convert.ToDateTime("15 / 04 / 1998"))
+            if (AnCustomer.DOB != Convert.ToDateTime("15/04/1998"))
             {
                 OK = false;
             }
@@ -248,7 +258,7 @@ namespace AgileProductsLTDtesting
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int16 CustomerID = 21;
+            Int16 CustomerID = 1;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check sortcode
@@ -272,7 +282,7 @@ namespace AgileProductsLTDtesting
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int16 CustomerID = 21;
+            Int16 CustomerID = 1;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check sortcode

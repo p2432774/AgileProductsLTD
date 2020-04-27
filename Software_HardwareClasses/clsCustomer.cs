@@ -126,22 +126,36 @@ namespace Software_HardwareClasses
 
    
 
-        public bool Find(int customerID)
+        public bool Find(int CustomerID)
         {
-            //set the private data members to the dtest data value
-            CustomerID = 21;
-            mmember = true;
-            mEmailaddress = "declan1998m@gmail.com";
-            mFullName = "Declan Monaghan";
-            mSortcode = "12 - 34 - 56";
-            mCardnumber = 123456789;
-            mAddress = "16 westadale court leicester le3 0gj";
-            mDOB = Convert.ToDateTime("15/04/1998"); 
+            //create an instance of a data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add parameter for the customer ID to search
+            DB.AddParameter("@CustomerID", CustomerID);
+            //executre stored procedure
+            DB.Execute("dbo.sproc_tblCustomer_FilterByCustomerID");
+            //if one record if found
+            if (DB.Count ==1)
+            {
+                mCustomerID = Convert.ToInt16(DB.DataTable.Rows[0]["CustomerID"]);
+                mmember = Convert.ToBoolean(DB.DataTable.Rows[0]["Member"]);
+                mDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["DOB"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mEmailaddress = Convert.ToString(DB.DataTable.Rows[0]["EmailAddress"]);
+                mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
+                mCardnumber = Convert.ToInt16(DB.DataTable.Rows[0]["Cardnumber"]);
+                mSortcode = Convert.ToString(DB.DataTable.Rows[0]["Sortcode"]);
+
+                return true;
+            }
+            
+            else
+            {
+                return false;
+            }
 
 
-
-            //always return true
-            return true;
+           
         }
     }
 }
