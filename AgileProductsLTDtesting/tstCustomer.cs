@@ -7,6 +7,10 @@ namespace AgileProductsLTDtesting
     [TestClass]
     public class tstCustomer
     {
+
+        // OK TESTS
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -14,6 +18,20 @@ namespace AgileProductsLTDtesting
             clsCustomer AnCustomer = new clsCustomer();
             //test to see that it exsists
             Assert.IsNotNull(AnCustomer);
+        }
+
+
+        [TestMethod]
+        public void CustomerIDOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //create some test data to assign to the property
+            Int16 TestData = 1;
+            //assign the data to the property
+            AnCustomer.CustomerID = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnCustomer.CustomerID, TestData);
         }
 
 
@@ -36,7 +54,7 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //create some test data to assign to the property
-            String TestData = "12-34-56";
+            string TestData = "12-34-56";
             //assign the data to the property
             AnCustomer.Sortcode = TestData;
             //test to see that the two values are the same
@@ -49,7 +67,7 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //create some test data to assign to the property
-            String TestData = "Declan1998m@gmail.com";
+            string TestData = "Declan1998m@gmail.com";
             //assign the data to the property
             AnCustomer.Emailaddress = TestData;
             //test to see that the two values are the same
@@ -62,7 +80,7 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //create some test data to assign to the property
-            String TestData = "8 b abbotham road bideford ex393aq";
+            string TestData = "8 b abbotham road bideford ex393aq";
             //assign the data to the property
             AnCustomer.Address = TestData;
             //test to see that the two values are the same
@@ -75,7 +93,7 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //create some test data to assign to the property
-            String TestData = "declan monaghan";
+            string TestData = "declan monaghan";
             //assign the data to the property
             AnCustomer.FullName = TestData;
             //test to see that the two values are the same
@@ -95,27 +113,6 @@ namespace AgileProductsLTDtesting
             Assert.AreEqual(AnCustomer.Cardnumber, TestData);
         }
 
-        [TestMethod]
-        public void CustomerIDOK()
-        {
-            //create an instance of the class we want to create
-            clsCustomer AnCustomer = new clsCustomer();
-            //create some test data to assign to the property
-            int TestData = 1;
-            //assign the data to the property
-            AnCustomer.CustomerID = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AnCustomer.CustomerID, TestData);
-        }
-
-        [TestMethod]
-        public void DOBOK()
-        {
-            clsCustomer AnCustomer = new clsCustomer();
-            DateTime testData = DateTime.Now.Date;
-            AnCustomer.DOB = testData;
-            Assert.AreEqual(AnCustomer.DOB, testData);
-        }
 
         [TestMethod]
         public void FindMethodOK()
@@ -123,15 +120,19 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //boolean variable to score the result of the validation
-            Boolean Found = false;
+            Boolean Found = true;
             //acreate some test data to use wit the method
-            Int16 CustomerID = 1;
+            Int16 CustomerID = 1;        
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //test to see that the result is correct
             Assert.IsTrue(Found);
 
         }
+
+
+        
+        //FOUND TESTS
 
         [TestMethod]
         public void TestCustomerIDFound()
@@ -143,40 +144,155 @@ namespace AgileProductsLTDtesting
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int16 CustomerID = 21;
+            Int16 CustomerID = 1;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check the customer no
-            if (AnCustomer.CustomerID != 21)
+            if (AnCustomer.CustomerID != 1)
             {
                 OK = false;
             }
             //test to see tyhat the result is correct
             Assert.IsTrue(OK);
-
         }
 
-        /* [TestMethod]
-         public void TestDOBFound()
-         {
-             //create an instance of the class we want to create
-             clsCustomer AnCustomer = new clsCustomer();
-             //boolean variable to score the result of the search
-             Boolean Found = false;
-             //boolean variable to record if data is ok (assume it is)
-             Boolean OK = true;
-             //create some test data to use with the method
-             Int16 CustomerID = 21;
-             //invoke the method
-             Found = AnCustomer.Find(CustomerID);
-             //check the DOB
-             if (AnCustomer.DOB != Convert.ToDateTime("15/04/1998"))
-             {
-                 OK = false;
-             }
-             //test to see tyhat the result is correct
-             Assert.IsTrue(OK);
 
-         }*/
+        [TestMethod]
+        public void TestAddressFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to score the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int16 CustomerID = 1;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check sortcode
+            if (AnCustomer.Address != ("8 b abbotham road bideford ex393aq"))
+            {
+                OK = false;
+            }
+            //test to see tyhat the result is correct
+            Assert.IsTrue(Found);
+        }
+
+
+        [TestMethod]
+        public void TestMemberFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to score the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int16 CustomerID = 1;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            if (AnCustomer.member != false)
+            {
+                OK = false;
+            }
+            //test to see tyhat the result is correct
+            Assert.IsTrue(Found);
+        }
+
+
+
+        [TestMethod]
+        public void TestCardnumberFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to score the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int16 CustomerID = 1;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            if (AnCustomer.Cardnumber != 123456789)
+            {
+                OK = false;
+            }
+            //test to see tyhat the result is correct
+            Assert.IsTrue(Found);
+        }
+
+
+        [TestMethod]
+        public void TestDOBFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to score the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int16 CustomerID = 1;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check DOB
+            if (AnCustomer.DOB != Convert.ToDateTime("15/04/1998"))
+            {
+                OK = false;
+            }
+            //test to see tyhat the result is correct
+            Assert.IsTrue(Found);
+        }
+
+
+        [TestMethod]
+        public void TestSortcodeFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to score the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int16 CustomerID = 1;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check sortcode
+            if (AnCustomer.Sortcode != ("12-34-56"))
+            {
+                OK = false;
+            }
+            //test to see tyhat the result is correct
+            Assert.IsTrue(Found);
+        }
+
+
+
+        [TestMethod]
+        public void TestEmailaddressFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to score the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int16 CustomerID = 1;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check sortcode
+            if (AnCustomer.Emailaddress != ("Declan1998m@gmail.com"))
+            {
+                OK = false;
+            }
+            //test to see tyhat the result is correct
+            Assert.IsTrue(Found);
+        }
+
     }
 }
