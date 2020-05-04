@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
 
 namespace Software_HardwareClasses
 {
     public class clsCustomer
     {
-       // public object Customer { get; set; }
-       // public string Email { get; set; }
-       // public string Name { get; set; }
-       // public DateTime DOB { get; set; }
 
 
 
@@ -15,7 +15,7 @@ namespace Software_HardwareClasses
         public int CustomerID
         {
             get
-            {                
+            {
                 return mCustomerID;
             }
             set
@@ -67,8 +67,8 @@ namespace Software_HardwareClasses
         }
 
 
-        private int mCardnumber;
-        public int Cardnumber
+        private long mCardnumber;
+        public long Cardnumber
         {
             get
             {
@@ -122,9 +122,12 @@ namespace Software_HardwareClasses
             }
         }
 
+
+
+
         //FIND FUNCTIONS
 
-   
+
 
         public bool Find(int CustomerID)
         {
@@ -133,9 +136,9 @@ namespace Software_HardwareClasses
             //add parameter for the customer ID to search
             DB.AddParameter("@CustomerID", CustomerID);
             //executre stored procedure
-            DB.Execute("dbo.sproc_tblCustomer_FilterByCustomerID");
+            DB.Execute("sproc_tblCustomer_FilterByCustomerID");
             //if one record if found
-            if (DB.Count ==1)
+            if (DB.Count == 1)
             {
                 mCustomerID = Convert.ToInt16(DB.DataTable.Rows[0]["CustomerID"]);
                 mmember = Convert.ToBoolean(DB.DataTable.Rows[0]["Member"]);
@@ -143,19 +146,49 @@ namespace Software_HardwareClasses
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
                 mEmailaddress = Convert.ToString(DB.DataTable.Rows[0]["EmailAddress"]);
                 mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
-                mCardnumber = Convert.ToInt16(DB.DataTable.Rows[0]["Cardnumber"]);
+                mCardnumber = Convert.ToInt64(DB.DataTable.Rows[0]["Cardnumber"]);
                 mSortcode = Convert.ToString(DB.DataTable.Rows[0]["Sortcode"]);
 
                 return true;
             }
-            
+
             else
             {
                 return false;
             }
-
-
-           
         }
+
+      
+
+        public string Valid(string member, string fullName, string dOB, string address, string emailaddress, string cardnumber, string sortcode)
+        {
+            String Error = "";
+            if (Sortcode.Length == 0)
+            {
+                Error = Error + "Sort codecan not be null and must be 8 digits long including breaks : ";
+            }
+            if (Sortcode.Length !=8)
+            {
+                Error = Error + "Sort code must be 8 digits long including breaks : ";                   
+            }
+            if (Sortcode.Length > 8)
+            {
+                Error = Error + "Sort code must be 8 digits long including breaks : ";
+            }           
+            if (Sortcode.Length < 8)
+            {
+                Error = Error + "Sort code must be 8 digits long including breaks : ";
+            }
+            return Error;
+        }
+
+   
+
+
     }
+
 }
+
+    
+
+

@@ -42,4 +42,25 @@ public partial class AnCustomer : System.Web.UI.Page
     {
 
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsCustomer AnCustomer = new clsCustomer();
+        Int16 CustomerID;
+        Boolean Found = false;
+        CustomerID = Convert.ToInt16(txtCustomerID.Text);
+        Found = AnCustomer.Find(CustomerID);
+        if(Found == true)
+        {
+            txtCustomerID.Text = AnCustomer.CustomerID.ToString();
+            txtFullName.Text = AnCustomer.FullName;
+            txtMember.Text = AnCustomer.member.ToString();
+            txtDOB.Text = AnCustomer.DOB.ToString();
+            txtAddress.Text = AnCustomer.Address;
+            txtEmailaddress.Text = AnCustomer.Emailaddress;
+            txtCardnumber.Text = AnCustomer.Cardnumber.ToString();
+            txtSortcode.Text = AnCustomer.Sortcode;
+
+        }
+    }
 }

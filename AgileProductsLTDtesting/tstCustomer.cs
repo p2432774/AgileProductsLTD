@@ -7,6 +7,15 @@ namespace AgileProductsLTDtesting
     [TestClass]
     public class tstCustomer
     {
+        string CustomerID = "3";
+        string FullName = "Declan Monaghan";
+        string Address = "8b abbotsham road";
+        string Emailaddress = "Declan1998m@gmail.com";
+        string Cardnumber = "123456789";
+        string Sortcode = "12-34-56";
+        string DOB = "15/04/1998";
+        string member = "true";
+
 
         // OK TESTS
 
@@ -120,7 +129,7 @@ namespace AgileProductsLTDtesting
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //boolean variable to score the result of the validation
-            Boolean Found = true;
+            Boolean Found = false;
             //acreate some test data to use wit the method
             Int16 CustomerID = 1;        
             //invoke the method
@@ -131,7 +140,15 @@ namespace AgileProductsLTDtesting
         }
 
 
-        
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+        }
+
         //FOUND TESTS
 
         [TestMethod]
@@ -176,7 +193,7 @@ namespace AgileProductsLTDtesting
                 OK = false;
             }
             //test to see tyhat the result is correct
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
 
@@ -198,7 +215,7 @@ namespace AgileProductsLTDtesting
                 OK = false;
             }
             //test to see tyhat the result is correct
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
 
@@ -221,7 +238,7 @@ namespace AgileProductsLTDtesting
                 OK = false;
             }
             //test to see tyhat the result is correct
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
 
@@ -244,7 +261,7 @@ namespace AgileProductsLTDtesting
                 OK = false;
             }
             //test to see tyhat the result is correct
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
 
@@ -262,12 +279,12 @@ namespace AgileProductsLTDtesting
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check sortcode
-            if (AnCustomer.Sortcode != ("12-34-56"))
+            if (AnCustomer.Sortcode != "12-34-56")
             {
                 OK = false;
             }
             //test to see tyhat the result is correct
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
 
@@ -286,13 +303,71 @@ namespace AgileProductsLTDtesting
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check sortcode
-            if (AnCustomer.Emailaddress != ("Declan1998m@gmail.com"))
+            if (AnCustomer.Emailaddress != "Declan1998m@gmail.com")
             {
                 OK = false;
             }
             //test to see tyhat the result is correct
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
+
+
+        [TestMethod]
+        public void SortcodeNull()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Sortcode = "";
+            Error = AnCustomer.Valid(Cardnumber, member, FullName, DOB, Address, Emailaddress, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should fail
+        }
+
+
+        [TestMethod]
+        public void SortcodeMinMinusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Sortcode = "aaaaaaa";
+            Error = AnCustomer.Valid(Cardnumber, member, FullName, DOB, Address, Emailaddress, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should fail
+        }
+
+
+        [TestMethod]
+        public void SortcodeMin()
+        { clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Sortcode = "aaaaaaaa";
+            Error = AnCustomer.Valid(Cardnumber, member, FullName, DOB, Address, Emailaddress, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void SortcodeMax()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Sortcode = "aaaaaaaa";
+            Error = AnCustomer.Valid(Cardnumber, member, FullName, DOB, Address, Emailaddress, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void SortcodeMaxPlusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Sortcode = "12345678";
+            Error = AnCustomer.Valid(Cardnumber, member, FullName, DOB, Address, Emailaddress, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should fail
+        }
+
 
     }
 }
