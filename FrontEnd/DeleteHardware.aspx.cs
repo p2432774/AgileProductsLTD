@@ -28,4 +28,9 @@ public partial class DeleteHardware : System.Web.UI.Page
         //Redirect back to main page
         Response.Redirect("HardwareList.aspx");
     }
+
+    protected void btnNo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("HardwareList.aspx");
+    }
 }

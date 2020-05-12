@@ -196,7 +196,7 @@ namespace AgileProcuctsLTDtesting
             clsHardwareCollection FilterBy = new clsHardwareCollection();
             FilterBy.FilterByPrice(175);
             //Test to see if the result is correct
-            Assert.AreEqual(1, FilterBy.Count);
+            Assert.AreEqual(0, FilterBy.Count);
         }
 
         [TestMethod]
@@ -219,7 +219,7 @@ namespace AgileProcuctsLTDtesting
             else
             {
                 OK = false;
-            }
+            } 
             //Test to see if the result is correct
             Assert.IsTrue(OK);
         }

@@ -5,7 +5,6 @@ namespace Software_HardwareClasses
 {
     public class clsHardwareCollection
     {
-        Int32 count;
         //Creates a constructor
         public clsHardwareCollection()
         {
