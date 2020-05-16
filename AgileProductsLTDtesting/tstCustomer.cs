@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Software_HardwareClasses;
 
@@ -7,7 +8,7 @@ namespace AgileProductsLTDtesting
     [TestClass]
     public class tstCustomer
     {
-        string CustomerID = "3";
+        
         string FullName = "Declan Monaghan";
         string Address = "8b abbotsham road";
         string Emailaddress = "Declan1998m@gmail.com";
@@ -131,7 +132,7 @@ namespace AgileProductsLTDtesting
             //boolean variable to score the result of the validation
             Boolean Found = false;
             //acreate some test data to use wit the method
-            Int16 CustomerID = 1;        
+            Int16 CustomerID = 1;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //test to see that the result is correct
@@ -312,17 +313,18 @@ namespace AgileProductsLTDtesting
         }
 
 
+        //sortcodevalidation
+
         [TestMethod]
         public void SortcodeNull()
         {
             clsCustomer AnCustomer = new clsCustomer();
             String Error = "";
             string Sortcode = "";
-            Error = AnCustomer.Valid(Cardnumber, member, FullName, DOB, Address, Emailaddress, Sortcode);
-            Assert.AreEqual(Error, "");
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
             //should fail
         }
-
 
         [TestMethod]
         public void SortcodeMinMinusOne()
@@ -330,18 +332,18 @@ namespace AgileProductsLTDtesting
             clsCustomer AnCustomer = new clsCustomer();
             String Error = "";
             string Sortcode = "aaaaaaa";
-            Error = AnCustomer.Valid(Cardnumber, member, FullName, DOB, Address, Emailaddress, Sortcode);
-            Assert.AreEqual(Error, "");
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
             //should fail
         }
 
-
         [TestMethod]
         public void SortcodeMin()
-        { clsCustomer AnCustomer = new clsCustomer();
+        {
+            clsCustomer AnCustomer = new clsCustomer();
             String Error = "";
             string Sortcode = "aaaaaaaa";
-            Error = AnCustomer.Valid(Cardnumber, member, FullName, DOB, Address, Emailaddress, Sortcode);
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
             Assert.AreEqual(Error, "");
             //should pass
         }
@@ -352,7 +354,7 @@ namespace AgileProductsLTDtesting
             clsCustomer AnCustomer = new clsCustomer();
             String Error = "";
             string Sortcode = "aaaaaaaa";
-            Error = AnCustomer.Valid(Cardnumber, member, FullName, DOB, Address, Emailaddress, Sortcode);
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
             Assert.AreEqual(Error, "");
             //should pass
         }
@@ -362,12 +364,362 @@ namespace AgileProductsLTDtesting
         {
             clsCustomer AnCustomer = new clsCustomer();
             String Error = "";
-            string Sortcode = "12345678";
-            Error = AnCustomer.Valid(Cardnumber, member, FullName, DOB, Address, Emailaddress, Sortcode);
-            Assert.AreEqual(Error, "");
+            string Sortcode = "aaaaaaaaa";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
             //should fail
         }
 
 
+       
+        //cardnumbervalidation
+
+        [TestMethod]
+        public void CardnumberMin()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Cardnumber = "aaaaaaaaa";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void CardnumberMax()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Cardnumber = "aaaaaaaaa";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void CardnumberMinMinusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Cardnumber = "aaaaaaaa";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+        [TestMethod]
+        public void CardnumberMaxPlusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Cardnumber = "aaaaaaaaaa";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+
+        
+        //emailvalidation
+
+
+        [TestMethod]
+        public void EmailaddressMin()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Emailaddress = "aaa";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void EmailaddressMax()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Emailaddress = "";
+            Emailaddress = Emailaddress.PadRight(64, 'a');
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void EmailaddressMinMinusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Emailaddress = "aa";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+        [TestMethod]
+        public void EmailaddressMaxPlusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Emailaddress = "";
+            Emailaddress = Emailaddress.PadRight(65, 'a');
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+
+        [TestMethod]
+        public void EmailaddressExtremeMax()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Emailaddress = "";
+            Emailaddress = Emailaddress.PadRight(100, 'a');
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+
+
+        //Addressvalidation
+
+
+        [TestMethod]
+        public void AddressMin()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Address = "a";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void AddressMax()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Address = "";
+            Address = Address.PadRight(60, 'a');
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void AddressMinMinusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Address = "";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+        [TestMethod]
+        public void AddressMaxPlusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Address = "";
+            Address = Address.PadRight(61, 'a');
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+        [TestMethod]
+        public void AddressExtremeMax()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Address = "";
+            Address = Address.PadRight(100, 'a');
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+        [TestMethod]
+        public void DOBExtremeMax()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-200);
+            string DOB = TestDate.ToString();
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+
+        [TestMethod]
+        public void DOBEMin()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-10);
+            string DOB = TestDate.ToString();
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void DOBMax()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string DOB = TestDate.ToString();
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void DOBMaxMinusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-101);
+            string DOB = TestDate.ToString();
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+        [TestMethod]
+        public void DOBEMinPlusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-9);
+            string DOB = TestDate.ToString();
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+
+
+
+        //namevalidation
+
+        [TestMethod]
+        public void FullNameNull()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string FullName = "";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+        [TestMethod]
+        public void FullNameMin()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string FullName = "aa";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void FullNameMax()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string FullName = "";
+            FullName = FullName.PadRight(40, 'a');
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should pass
+        }
+
+        [TestMethod]
+        public void FullnameMaxPlusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string Fullname = "";
+            FullName = Fullname.PadRight(41, 'a');
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+        [TestMethod]
+        public void FullNameMinPlusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string FullName = "a";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+        [TestMethod]
+        public void FullNameExtremeMax()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string FullName = "";
+            FullName = FullName.PadRight(100, 'a');
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
+
+
+        //memebervalidation
+
+        [TestMethod]
+        public void memeberMinAndMax()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string member = "true";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreEqual(Error, "");
+            //should ass
+        }
+
+        [TestMethod]
+        public void memeberMaxPlusOne()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            String Error = "";
+            string member = "False";
+            Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+            Assert.AreNotEqual(Error, "");
+            //should fail
+        }
     }
+
+ 
+
+     
+
+
 }
+

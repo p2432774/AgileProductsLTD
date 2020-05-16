@@ -25,7 +25,7 @@ namespace Software_HardwareClasses
         }
 
 
-        private bool mmember;
+        private Boolean mmember;
         public bool member
         {
             get
@@ -122,6 +122,8 @@ namespace Software_HardwareClasses
             }
         }
 
+        public object Active { get; set; }
+
 
 
 
@@ -158,36 +160,106 @@ namespace Software_HardwareClasses
             }
         }
 
-      
 
-        public string Valid(string member, string fullName, string dOB, string address, string emailaddress, string cardnumber, string sortcode)
+
+        public string Valid(string member, string fullName, string DOB, string address, string emailaddress, string cardnumber, string sortcode)
         {
             String Error = "";
-            if (Sortcode.Length == 0)
+            DateTime TempDate;
+            try
             {
-                Error = Error + "Sort codecan not be null and must be 8 digits long including breaks : ";
+                TempDate = Convert.ToDateTime(DOB);
+                if (TempDate < DateTime.Now.Date.AddYears(-100))
+                {
+                    Error = Error + "date cannot be more than 100 years ago ";             
+                }
+                if (TempDate > DateTime.Now.Date.AddYears(-10))
+                {
+                    Error = Error + "date cannot be more less than 10 years ago ";
+                }
             }
-            if (Sortcode.Length !=8)
+            catch
             {
-                Error = Error + "Sort code must be 8 digits long including breaks : ";                   
+                Error = Error + "not a valid date ";
             }
-            if (Sortcode.Length > 8)
+            
+            if (sortcode.Length == 0)
+            {
+                Error = Error + "Sortcode cannot be null and must be 8 digits long including breaks : ";
+            }
+            if (sortcode.Length > 8)
             {
                 Error = Error + "Sort code must be 8 digits long including breaks : ";
-            }           
-            if (Sortcode.Length < 8)
+            }
+            if (sortcode.Length < 8)
             {
                 Error = Error + "Sort code must be 8 digits long including breaks : ";
             }
-            return Error;
+
+            if (cardnumber.Length != 9)
+            {
+                Error = Error + "Cardnumber must be 9 digits long including breaks : ";
+            }
+            if (cardnumber.Length < 9)
+            {
+                Error = Error + "Cardnumber must be 9 digits long including breaks : ";
+            }
+            if (cardnumber.Length > 9)
+            {
+                Error = Error + "Cardnumber must be 9 digits long including breaks : ";
+            }
+            if (emailaddress.Length == 0)
+            {
+                Error = Error + "Emailaddress must be between 3 and 64 characters : ";
+            }
+            if (emailaddress.Length < 3)
+            {
+                Error = Error + "Emailaddress must be between 3 and 64 characters : ";
+            }
+            if (emailaddress.Length > 64)
+            {
+                Error = Error + "Emailaddress must be between 3 and 64 characters : ";
+            }
+            if (address.Length < 1)
+            {
+                Error = Error + "Address must be longer than 1 character : ";
+            }
+            if (address.Length > 60)
+            {
+                Error = Error + "Address must be shorter then 60 character : ";
+            }
+            if (address.Length == 0)
+            {
+                Error = Error + "Address must be at least one character long : ";
+            }
+            if (fullName.Length > 40)
+            {
+                Error = Error + "Name cannot be longer than 40 characters : ";
+            }
+            if (fullName.Length < 2)
+            {
+                Error = Error + "Name cannot be Shrorter than 2 characters : ";
+            }
+            if (fullName.Length == 0)
+            {
+                Error = Error + "Field cannot be null : ";
+            }
+            if (member.Length != 4 )
+            {
+                Error = Error + "If already a member please log in : ";
+            }
+            
+
+
+          return Error;
         }
 
-   
-
+        
 
     }
-
 }
+
+
 
     
 

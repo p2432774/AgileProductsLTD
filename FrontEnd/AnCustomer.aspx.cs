@@ -16,26 +16,55 @@ public partial class AnCustomer : System.Web.UI.Page
         clsCustomer AnCustomer = new clsCustomer();
         // capture customerID
         AnCustomer.CustomerID =Convert.ToInt16 (txtCustomerID.Text);
+        //capture member
+        string member = txtMember.Text;
         //capture the name 
-        AnCustomer.FullName = txtFullName.Text;
+        string FullName = txtFullName.Text;
         //capture DOB
-        AnCustomer.DOB = Convert.ToDateTime( txtDOB.Text);
+        string DOB = txtDOB.Text;
         //captureAddress
-        AnCustomer.Address = txtAddress.Text;
+        string Address = txtAddress.Text;
         //capture email address
-        AnCustomer.Emailaddress = txtEmailaddress.Text;
+        string Emailaddress = txtEmailaddress.Text;
         //capture card number
-        AnCustomer.Cardnumber =Convert.ToInt32 (txtCardnumber.Text);
+        string Cardnumber = txtCardnumber.Text;
         //capture sort code
-        AnCustomer.Sortcode = txtSortcode.Text;
-        
-        //store the customer details in the session object
-        Session["AnCustomer"] = AnCustomer;
-        //redirect to the viewer page
-        Response.Write("CustomerViewer.aspx");
+        string Sortcode = txtSortcode.Text;
+        string Error = "";
+        Error = AnCustomer.Valid(member, FullName, DOB, Address, Emailaddress, Cardnumber, Sortcode);
+        if(Error  == "")
+        {
+            //AnCustomer.CustomerID = CustomerID;
+            AnCustomer.member = Convert.ToBoolean(member);
+            AnCustomer.FullName = FullName;
+            AnCustomer.Address = Address;
+            AnCustomer.DOB = Convert.ToDateTime(DOB);
+            AnCustomer.Emailaddress = Emailaddress;
+            AnCustomer.Cardnumber =Convert.ToInt64(Cardnumber);
+            AnCustomer.Sortcode = Sortcode;
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+            if (CustomerID == -1)
+            {
+                CustomerList.ThisCustomer = AnCustomer;
+                CustomerList.Add();
+            }
+            else
+            {
+                CustomerList.ThisCustomer.Find(CustomerID);
+                CustomerList.ThisCustomer = AnCustomer;
+                CustomerList.Update();
+            }
+          
+            //store the customer details in the session object
+            //Session["AnCustomer"] = AnCustomer;
+            //redirect to the list page           
+            Response.Redirect("CustomerList.aspx");
+        }
+        else
+        {
+            Error = Error + "aaaaaaaa";
+        }
 
-        Session["AnCustomer"] = AnCustomer;
-        Response.Redirect("CustomerViewer.aspx");
     }
 
     protected void txtCardumber_TextChanged(object sender, EventArgs e)
@@ -62,5 +91,35 @@ public partial class AnCustomer : System.Web.UI.Page
             txtSortcode.Text = AnCustomer.Sortcode;
 
         }
+    }
+    Int32 CustomerID;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        CustomerID = Convert.ToInt32(Session["CustomerID"]);
+        if (IsPostBack == false)
+        {
+            if (CustomerID != -1)
+            {
+
+                DisplayCustomers();
+            }
+        }
+        
+    }
+
+    private void DisplayCustomers()
+    {
+
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        CustomerBook.ThisCustomer.Find(CustomerID);
+
+        txtCustomerID.Text = CustomerBook.ThisCustomer.CustomerID.ToString();
+        txtFullName.Text = CustomerBook.ThisCustomer.FullName;
+        txtMember.Text = CustomerBook.ThisCustomer.member.ToString();
+        txtDOB.Text = CustomerBook.ThisCustomer.DOB.ToString();
+        txtAddress.Text = CustomerBook.ThisCustomer.Address;
+        txtEmailaddress.Text = CustomerBook.ThisCustomer.Emailaddress;
+        txtCardnumber.Text = CustomerBook.ThisCustomer.Cardnumber.ToString();
+        txtSortcode.Text = CustomerBook.ThisCustomer.Sortcode;
     }
 }

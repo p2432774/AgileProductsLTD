@@ -23,7 +23,7 @@ public partial class CustomerViewer : System.Web.UI.Page
         //diplay address for entry
         Response.Write(AnCustomer.Emailaddress);
         //display email for entry
-        Response.Write(AnCustomer.Emailaddress);
+        Response.Write(AnCustomer.Address);
         //display sort code for entry
         Response.Write(AnCustomer.Sortcode);
         //display card number for entry
