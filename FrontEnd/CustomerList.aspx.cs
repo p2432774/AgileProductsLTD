@@ -64,7 +64,7 @@ public partial class CustomerList : System.Web.UI.Page
     protected void Apply_Click(object sender, EventArgs e)
     { 
         clsCustomerCollection Customers = new clsCustomerCollection();
-        Customers.ReportByFullName(txtFilter.Text);
+        Customers.ReportByFullName(Apply.Text);
         lstCustomerList.DataSource = Customers.CustomerList;
         lstCustomerList.DataValueField = "CustomerID";
         lstCustomerList.DataTextField = "FullName";
@@ -75,7 +75,7 @@ public partial class CustomerList : System.Web.UI.Page
     {
         clsCustomerCollection Customers = new clsCustomerCollection();
         Customers.ReportByFullName("");
-        txtFilter.Text = "";
+        Clear.Text = "";
         lstCustomerList.DataValueField = "CustomerID";
         lstCustomerList.DataTextField = "FullName";
         lstCustomerList.DataBind();

@@ -164,7 +164,7 @@ namespace AgileProductsLTDtesting
         public void ReportByFullNameNoneFound()
         {
             clsCustomerCollection FilteredFullName = new clsCustomerCollection();
-            FilteredFullName.ReportByFullName("");
+            FilteredFullName.ReportByFullName("john Paul");
             Assert.AreEqual(1, FilteredFullName.Count);
         }
 

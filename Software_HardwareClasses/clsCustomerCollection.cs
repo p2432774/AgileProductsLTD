@@ -83,7 +83,7 @@ namespace Software_HardwareClasses
         public void Update()
         {
             clsDataConnection DB = new clsDataConnection();
-            //DB.AddParameter("@CustomerID", mCustomer.CustomerID);
+            DB.AddParameter("@CustomerID", mCustomer.CustomerID);
             DB.AddParameter("@Member", mCustomer.member);
             DB.AddParameter("@DOB", mCustomer.DOB);
             DB.AddParameter("@Address", mCustomer.Address);
