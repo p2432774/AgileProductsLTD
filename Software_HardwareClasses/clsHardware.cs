@@ -162,7 +162,7 @@ namespace Software_HardwareClasses
             if(Price.Length == 0)
             {
                 //Record the error
-                Error = Error + "The price may not be black! ";
+                Error = Error + "The price may not be blank! ";
             }
 
             try {

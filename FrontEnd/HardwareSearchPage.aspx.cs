@@ -14,6 +14,7 @@ public partial class _Default : System.Web.UI.Page
     {
         //Get the primary key for the record to be editted from the session object
         HardwareID = Convert.ToInt32(Session["hardware"]);
+
         if (IsPostBack == false)
         {
             if (HardwareID != -1)
@@ -161,5 +162,10 @@ public partial class _Default : System.Web.UI.Page
     protected void btnList_Click(object sender, EventArgs e)
     {
         Response.Redirect("HardwareList.aspx");
+    }
+
+    protected void btnTodaysDate_Click(object sender, EventArgs e)
+    {
+        txtDate.Text = Convert.ToString(DateTime.Now.Date);
     }
 }
