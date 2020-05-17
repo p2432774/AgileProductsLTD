@@ -6,7 +6,26 @@
 <head runat="server">
     <title></title>
 </head>
-<body style="height: 110px; width: 363px">
+<body style="max-width: 500px; margin: auto;">
+    <p>
+        <br />
+    </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
     <form id="form1" runat="server">
         <div>
             Are you sure you want to delete this product?<br />

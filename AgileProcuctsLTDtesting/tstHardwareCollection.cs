@@ -194,9 +194,9 @@ namespace AgileProcuctsLTDtesting
         {
             //Creates instance of clsHardwareCollection
             clsHardwareCollection FilterBy = new clsHardwareCollection();
-            FilterBy.FilterByPrice(175);
+            FilterBy.FilterByPrice(100);
             //Test to see if the result is correct
-            Assert.AreEqual(0, FilterBy.Count);
+            Assert.AreEqual(1, FilterBy.Count);
         }
 
         [TestMethod]
@@ -207,11 +207,11 @@ namespace AgileProcuctsLTDtesting
             //Creates a Boolean variable to store the outcome 
             Boolean OK = true;
             //Apply a test price
-            hardwareCollection.FilterByPrice(175);
+            hardwareCollection.FilterByPrice(100);
             //Check if any record matches the price
             if (hardwareCollection.Count == 1)
             {
-                if (hardwareCollection.HardwareProductList[0].HardwareID != 5)
+                if (hardwareCollection.HardwareProductList[0].HardwareID != 120)
                 {
                     OK = false;
                 }

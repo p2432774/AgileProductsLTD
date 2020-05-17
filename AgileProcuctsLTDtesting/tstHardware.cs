@@ -8,7 +8,7 @@ namespace AgileProcuctsLTDtesting
     public class tstHardware
     {
 
-        //Creates test data
+        //Creates test data 
         string HardWareID = "1";
         string Name = "Name";
         string Description = "This is a description";
@@ -115,7 +115,7 @@ namespace AgileProcuctsLTDtesting
             //Creates a boolean variable for use with the validation
             Boolean Found = false;
             //Creates a test int variable
-            Int32 TestHardwareID = 5;
+            Int32 TestHardwareID = 120;
             //Invoke the find method
             Found = hardware.Find(TestHardwareID);
             //Test to see if the result is correct
@@ -132,11 +132,11 @@ namespace AgileProcuctsLTDtesting
             //Creates another boolean variable this time to record if the data is ok
             Boolean OK = true;
             //Creates a test int variable
-            Int32 TestHardwareID = 5;
+            Int32 TestHardwareID = 120;
             //Invoke the find method
             Found = hardware.Find(TestHardwareID);
             //Check the ID number
-            if (hardware.HardwareID != 5)
+            if (hardware.HardwareID != 120)
             {
                 OK = false;
             }
@@ -154,11 +154,11 @@ namespace AgileProcuctsLTDtesting
             //Creates another boolean variable this time to record if the data is ok
             Boolean OK = true;
             //Creates a test int variable
-            Int32 TestHardwareID = 5;
+            Int32 TestHardwareID = 120;
             //Invoke the find method
             Found = hardware.Find(TestHardwareID);
             //Check the Name
-            if (hardware.Name != "AMD Ryzen 7 3700X")
+            if (hardware.Name != "DoNotRemove")
             {
                 OK = false;
             }
@@ -175,11 +175,11 @@ namespace AgileProcuctsLTDtesting
             Boolean Found = false;
             //Creates another boolean variable this time to record if the data is ok
             Boolean OK = true;
-            Int32 TestHardwareID = 5;
+            Int32 TestHardwareID = 120;
             //Invoke the find method
             Found = hardware.Find(TestHardwareID);
             //Check the Description
-            if (hardware.Description != "An AMD Octa-Core CPU")
+            if (hardware.Description != "TestProduct")
             {
                 OK = false;
             }
@@ -196,11 +196,11 @@ namespace AgileProcuctsLTDtesting
             Boolean Found = false;
             //Creates another boolean variable this time to record if the data is ok
             Boolean OK = true;
-            Int32 TestHardwareID = 5;
+            Int32 TestHardwareID = 120;
             //Invoke the find method
             Found = hardware.Find(TestHardwareID);
             //Check the Price
-            if (hardware.Price != 175)
+            if (hardware.Price != 100)
             {
                 OK = false;
             }
@@ -217,11 +217,11 @@ namespace AgileProcuctsLTDtesting
             Boolean Found = false;
             //Creates another boolean variable this time to record if the data is ok
             Boolean OK = true;
-            Int32 TestHardwareID = 5;
+            Int32 TestHardwareID = 120;
             //Invoke the find method
             Found = hardware.Find(TestHardwareID);
             //Check the AmountInStock
-            if (hardware.AmountInStock != 3)
+            if (hardware.AmountInStock != 5)
             {
                 OK = false;
             }
@@ -238,7 +238,7 @@ namespace AgileProcuctsLTDtesting
             Boolean Found = false;
             //Creates another boolean variable this time to record if the data is ok
             Boolean OK = true;
-            Int32 TestHardwareID = 5;
+            Int32 TestHardwareID = 120;
             //Invoke the find method
             Found = hardware.Find(TestHardwareID);
             //Check the AmountInStock
@@ -260,11 +260,11 @@ namespace AgileProcuctsLTDtesting
             //Creates a nother boolean variable thi time to record if the data is ok
             Boolean OK = true;
             //Creates a test int variable
-            Int32 HardWareID = 5;
+            Int32 HardWareID = 120;
             //Invoke the find method
             Found = hardware.Find(HardWareID);
             //Check date
-            if (hardware.DateAdded != Convert.ToDateTime("19/01/2019"))
+            if (hardware.DateAdded != Convert.ToDateTime("17/05/2020"))
             {
                 OK = false;
             }

@@ -6,10 +6,21 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="max-width: 500px; margin: auto;">
     <form id="form1" runat="server">
-        <div>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
             <asp:ListBox ID="lstHardwareList" runat="server" Height="273px" OnSelectedIndexChanged="lstHardwareList_SelectedIndexChanged" Width="436px" Rows="10"></asp:ListBox>
+            <br />
             <br />
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
             <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />

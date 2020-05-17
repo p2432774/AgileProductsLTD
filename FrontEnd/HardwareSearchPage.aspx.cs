@@ -21,6 +21,7 @@ public partial class _Default : System.Web.UI.Page
                 DisplayProducts();
             }
         }
+
     }
 
     void DisplayProducts()
@@ -37,11 +38,6 @@ public partial class _Default : System.Web.UI.Page
         txtAmountInStock.Text = hardwareCollection.ThisHardwareProduct.AmountInStock.ToString();
         txtStockRequired.Text = hardwareCollection.ThisHardwareProduct.StockRequired.ToString();
         txtDate.Text = hardwareCollection.ThisHardwareProduct.DateAdded.ToString();
-    }
-
-    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-    {
-
     }
 
     protected void OKBtn_Click(object sender, EventArgs e)
@@ -160,5 +156,10 @@ public partial class _Default : System.Web.UI.Page
                 txtDate.Text = "";
             }
         }
+    }
+
+    protected void btnList_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("HardwareList.aspx");
     }
 }

@@ -136,25 +136,25 @@ namespace Software_HardwareClasses
             if (Name.Length == 0)
             {
                 //Record the error
-                Error = Error + "The HardWareID may not be blank: ";
+                Error = Error + "The name may not be blank!";
             }
             //If the ID number is greater than 5
             if (Name.Length > 25)
             {
                 //Record the error
-                Error = Error + "The HardWareID must be 6 characters or less: ";
+                Error = Error + "The name must be 6 characters or less!";
             }
             //If the name is blank
             if (Description.Length == 0)
             {
                 //Record the error
-                Error = Error + "The Name may not be blank: ";
+                Error = Error + "The description may not be blank: ";
             }
             //If the Name is blank
             if (Description.Length > 100)
             {
                 //Record the error
-                Error = Error + "The name must be 25 characters or less";
+                Error = Error + "The description must be 25 characters or less";
             }
             try
             {

@@ -14,7 +14,6 @@ public partial class DeleteHardware : System.Web.UI.Page
     {
         //Gets the primary key of the record to be deleted from the session object
         HardwareID = Convert.ToInt32(Session["hardware"]);
-        Response.Write(HardwareID);
     }
 
     protected void btnYes_Click(object sender, EventArgs e)

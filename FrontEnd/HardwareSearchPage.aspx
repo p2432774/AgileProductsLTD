@@ -6,17 +6,29 @@
 <head runat="server">
     <title></title>
 </head>
-<body style="width: 480px; height: 545px">
+<body style="max-width: 500px; margin: auto;">
     <form id="form1" runat="server">
         <p>
-            &nbsp; HardwareID:
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            HardwareID:
             <asp:TextBox ID="txtHardwareID" runat="server" Width="23px"></asp:TextBox>
 &nbsp;&nbsp;
             <asp:Button ID="BtnFind" runat="server" OnClick="BtnFind_Click1" style="margin-left: 0px" Text="Find" />
 &nbsp;&nbsp;&nbsp; ID Number:
-            <asp:TextBox ID="txtIDResult" runat="server" ReadOnly="True" Width="136px"></asp:TextBox>
+            <asp:TextBox ID="txtIDResult" runat="server" ReadOnly="True" Width="90px"></asp:TextBox>
         </p>
-        <p style="height: 41px; margin-top: 0px">
+        <p style="height: 41px; margin-top: 0px; width: 424px;">
             &nbsp; Name:<asp:TextBox ID="txtName" runat="server" Height="16px" style="margin-left: 37px; margin-top: 19px" Width="253px"></asp:TextBox>
         </p>
         <p>
@@ -49,7 +61,8 @@
         <p>
             <asp:Button ID="OKBtn" runat="server" Text="OK" OnClick="OKBtn_Click" />
             <asp:Button ID="CancelBtn" runat="server" Text="Cancel" OnClick="CancelBtn_Click" />
-        &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnList" runat="server" OnClick="btnList_Click" Text="List" />
         </p>
     </form>
 </body>
