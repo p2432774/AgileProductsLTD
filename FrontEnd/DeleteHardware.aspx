@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
 </head>
-<body style="max-width: 500px; margin: auto;">
+<body style="max-width: 400px; margin: auto; background-color: slategrey">
     <p>
         <br />
     </p>

@@ -136,26 +136,33 @@ namespace Software_HardwareClasses
             //If the name is blank
             if (Name.Length == 0) {
                 //Record the error
-                Error = Error + "The name may not be blank!";
+                Error = Error + "The name may not be blank! ";
             }
 
             //If the name is greater than 25
             if (Name.Length > 25) {
                 //Record the error
-                Error = Error + "The name must be 6 characters or less!";
+                Error = Error + "The name must be 25 characters or less! ";
             }
 
             //If the description is blank
             if (Description.Length == 0)
             {
                 //Record the error
-                Error = Error + "The description may not be blank!";
+                Error = Error + "The description may not be blank! ";
             }
 
             //If the description is greater than 100
             if (Description.Length > 100) {
                 //Record the error
-                Error = Error + "The description must be 25 characters or less!";
+                Error = Error + "The description must be 100 characters or less! ";
+            }
+
+            //If the price is blank
+            if(Price.Length == 0)
+            {
+                //Record the error
+                Error = Error + "The price may not be black! ";
             }
 
             try {
@@ -163,21 +170,31 @@ namespace Software_HardwareClasses
                 int TempInt = Convert.ToInt32(Price);
             } catch {
                 //Record the error
-                Error = Error + "Please make sure there are only numbers in the Price field!";
+                Error = Error + "Please make sure there are only numbers in the Price field! ";
             }
 
+            //If the amountinstock is blank
+            if(AmountInStock.Length == 0)
+            {
+                //Record the error
+                Error = Error + "The AmountInStock may not be blank! ";
+            }
             try {
                 int TempInt = Convert.ToInt32(AmountInStock);
             } catch {
                 //Record the error
-                Error = Error + "Please make sure there are only numbers in the AmountInStock field!";
+                Error = Error + "Please make sure there are only numbers in the AmountInStock field! ";
             }
 
+            if(StockRequired.Length == 0) {
+                //Record the error
+                Error = Error + "The StockRequired may not be blank! ";
+            }
             //Creates a temporary variable to store the upper case version of StockRequired
             string TempBool = StockRequired.ToUpper();
             if(TempBool != "TRUE" && TempBool != "FALSE") {
                 //Record the error
-                Error = Error + "Please make sure you have True or False in the StockRequired field!";
+                Error = Error + "Please make sure you have True or False in the StockRequired field! ";
             }
 
             try {
@@ -186,16 +203,16 @@ namespace Software_HardwareClasses
                 //If the date given is in the past
                 if (DateTemp < DateTime.Now.Date) {
                     //Record the error
-                    Error = Error + "The date cannot be in the past!";
+                    Error = Error + "The date cannot be in the past! ";
                 }
                 //If the date given is in the future
                 if (DateTemp > DateTime.Now.Date) {
                     //Record the error
-                    Error = Error + "The date cannot be in the future!";
+                    Error = Error + "The date cannot be in the future! ";
                 }
             } catch {
                 //Record the error
-                Error = Error + "The date is not a valid date!";
+                Error = Error + "The date is not a valid date! ";
             }
 
             //Return the error message

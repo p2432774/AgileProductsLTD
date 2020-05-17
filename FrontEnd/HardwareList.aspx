@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
 </head>
-<body style="max-width: 500px; margin: auto;">
+<body style="max-width: 400px; margin: auto; background-color: slategrey">
     <form id="form1" runat="server">
         <p>
             &nbsp;</p>
