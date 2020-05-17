@@ -32,6 +32,11 @@
     <p>
         StaffPermissionToChangeOrAdd<asp:CheckBox ID="txtStaffPermissionToCorAdd" runat="server" />
         </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:Label ID="lblError" runat="server" Text="Error Message"></asp:Label>
+        </p>
     <p>
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
         </p>

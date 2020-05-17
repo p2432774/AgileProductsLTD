@@ -11,28 +11,36 @@ public partial class AnStaff : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     { 
     }
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         clsStaff AnStaff = new clsStaff();
-        AnStaff.StaffFirstnameAndLastname = txtStaffFirstnameAndLastname.Text;
-        AnStaff.StaffID = Convert.ToInt16(txtStaffID.Text);
-        AnStaff.StreetAddress = txtStaffAddress.Text;
-        AnStaff.PhoneNumber = txtStaffPhoneNumber.Text;
-        AnStaff.PermissionToChangeOrAdd = Convert.ToBoolean(txtStaffPermissionToCorAdd.Checked);
-        AnStaff.DateOfBirth = Convert.ToDateTime(txtStaffDateOfBirth.Text);
-        AnStaff.Department = txtStaffDepartment.Text;
 
+        string StaffFirstnameAndLastname = txtStaffFirstnameAndLastname.Text;
+        string StreetAddress = txtStaffAddress.Text;
+        string PhoneNumber = txtStaffPhoneNumber.Text;
+        string PermissionToChangeOrAdd = txtStaffPermissionToCorAdd.Text;
+        string DateOfBirth = txtStaffDateOfBirth.Text;
+        string Department = txtStaffDepartment.Text;
+        string Error = "";
+        Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+        if (Error == "")
+        {
+            AnStaff.StaffFirstnameAndLastname = StaffFirstnameAndLastname;
+            AnStaff.StreetAddress = StreetAddress;
+            AnStaff.PhoneNumber = PhoneNumber;
+            AnStaff.PermissionToChangeOrAdd = Convert.ToBoolean(PermissionToChangeOrAdd);
+            AnStaff.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+            AnStaff.Department = Department;
 
-
-        Session["AnStaff"] = AnStaff;
-        Response.Redirect("StaffViewer.aspx");
+            Session["AnStaff"] = AnStaff;
+            Response.Redirect("StaffViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
-
-
-    protected void btnFind_Click(object sender, EventArgs e)
-    {
-    }
-      
 
     protected void btnFind_Click1(object sender, EventArgs e)
         {
@@ -54,4 +62,5 @@ public partial class AnStaff : System.Web.UI.Page
         }
 
     }
+
 

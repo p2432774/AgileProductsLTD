@@ -11,7 +11,7 @@ namespace AgileProductsLTDtesting
     [TestClass]
     public class tstStaff
     {
-        string PhoneNumber = "012345678911";
+        string PhoneNumber = "01234567891";
         string DateOfBirth = DateTime.Now.Date.ToString();
         string StaffFirstnameAndLastname = "Joe Bloggs";
         string StreetAddress = "Some Road";
@@ -151,8 +151,8 @@ namespace AgileProductsLTDtesting
                 OK = false;
             }
             Assert.IsTrue(OK);
-        }
-
+            }
+        
         [TestMethod]
         public void TestStaffDateOfBirthMinLessOne()
         {
@@ -160,10 +160,9 @@ namespace AgileProductsLTDtesting
             String Error = "";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddDays(30 / 12 / 1930);
+            TestDate = TestDate.AddYears(-99);
             string DateOfBirth = TestDate.ToString();
             Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
-
             Assert.AreEqual(Error, "");
 
         }
@@ -174,31 +173,41 @@ namespace AgileProductsLTDtesting
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             DateTime TestDate;
-            TestDate = DateTime.Now.Date; ;
-            TestDate = TestDate.AddDays(31/12/1930);
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
             string DateOfBirth = TestDate.ToString();
-            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber );
-
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
             Assert.AreEqual(Error, "");
 
         }
-
         [TestMethod]
         public void TestStaffDateOfBirthMinPlusOne()
         {
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             DateTime TestDate;
-            TestDate = DateTime.Now.Date; ;
-            TestDate = TestDate.AddDays(01/01/1931);
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-101);
             string DateOfBirth = TestDate.ToString();
             Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+            Assert.AreNotEqual(Error, "");
 
+        }
+        [TestMethod]
+        public void TestStaffDateOfBirthMaxMinusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-2);
+            string DateOfBirth = TestDate.ToString();
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
             Assert.AreEqual(Error, "");
 
         }
         [TestMethod]
-        public void TestStaffDateOfBirthMaxLessOne()
+        public void TestStaffDateOfBirthMax()
         {
             clsStaff AnStaff = new clsStaff();
             String Error = "";
@@ -207,11 +216,11 @@ namespace AgileProductsLTDtesting
             TestDate = TestDate.AddDays(-1);
             string DateOfBirth = TestDate.ToString();
             Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
-
             Assert.AreEqual(Error, "");
+
         }
         [TestMethod]
-        public void TestStaffDateOfBirthExtremeMax()
+        public void TestStaffDateOfBirthMaxPlusOne()
         {
             clsStaff AnStaff = new clsStaff();
             String Error = "";
@@ -220,13 +229,38 @@ namespace AgileProductsLTDtesting
             TestDate = TestDate.AddDays(+1);
             string DateOfBirth = TestDate.ToString();
             Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+            Assert.AreNotEqual(Error, "");
 
-            Assert.AreEqual(Error, "");
         }
-    }
+        [TestMethod]
+        public void TestStaffDateOfBirthExtremeMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string DateOfBirth = TestDate.ToString();
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStaffDateOfBirthInvalidData()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string DateOfBirth = "This is not a date!";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+
         [TestMethod]
         public void TestDepartmentFound()
         {
+
             clsStaff AnStaff = new clsStaff();
             Boolean Found = false;
             Boolean OK = true;
@@ -237,6 +271,107 @@ namespace AgileProductsLTDtesting
                 OK = false;
             }
             Assert.IsTrue(OK);
+
+        }
+
+        [TestMethod]
+        public void TestDepartmentMinLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string Department = "";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestDepartmentMin()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string Department = "a";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestDepartmentMinPlusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string Department = "aa";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestDepartmentMaxLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string Department = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestDepartmentMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string Department = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestDepartmentMid()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string Department = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestDepartmentMaxPlusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string Department = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestDepartmentExtremeMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string Department = "";
+            Department = Department.PadRight(200, 'a');
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestDepartmentExtremeMin()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string Department = "";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
 
         }
         [TestMethod]
@@ -255,6 +390,107 @@ namespace AgileProductsLTDtesting
 
         }
         [TestMethod]
+        public void TestStaffFirstNameAndLastnameMinLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StaffFirstnameAndLastname = "";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStaffFirstNameAndLastnameMin()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StaffFirstnameAndLastname = "a";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStaffFirstNameAndLastnameMinPlusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StaffFirstnameAndLastname = "aa";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStaffFirstNameAndLastnameMaxLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StaffFirstnameAndLastname = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStaffFirstNameAndLastnameMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StaffFirstnameAndLastname = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStaffFirstNameAndLastnameMid()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StaffFirstnameAndLastname = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStaffFirstNameAndLastnameMaxPlusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StaffFirstnameAndLastname = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStaffFirstNameAndLastnameExtremeMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StaffFirstnameAndLastname = "";
+            StaffFirstnameAndLastname = StaffFirstnameAndLastname.PadRight(200, 'a');
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStaffFirstNameAndLastnameExtremeMin()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StaffFirstnameAndLastname = "";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
         public void TestPhoneNumberFound()
         {
             clsStaff AnStaff = new clsStaff();
@@ -267,10 +503,110 @@ namespace AgileProductsLTDtesting
                 OK = false;
             }
             Assert.IsTrue(OK);
+        }
+         [TestMethod]
+        public void TestPhoneNumberMinLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string PhoneNumber = "";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
 
         }
         [TestMethod]
-        public void TestStaffAddressFound()
+        public void PhoneNumberMin()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string PhoneNumber = "1";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PhoneNumberMinPlusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string PhoneNumber = "11";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PhoneNumberMaxLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string PhoneNumber = "11111111111";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PhoneNumberMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string PhoneNumber = "111111111111";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PhoneNumberMid()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string PhoneNumber = "111111";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PhoneNumberMaxPlusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string PhoneNumber = "1111111111111";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PhoneNumberExtremeMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string PhoneNumber = "11111111111111";
+            PhoneNumber = PhoneNumber.PadRight(1);
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreNotEqual(Error, "11111111111111");
+
+        }
+        [TestMethod]
+        public void PhoneNumberExtremeMin()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string PhoneNumber = "";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void TestStreetAddressFound()
         {
             clsStaff AnStaff = new clsStaff();
             Boolean Found = false;
@@ -282,8 +618,113 @@ namespace AgileProductsLTDtesting
                 OK = false;
             }
             Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestStreetAddressMinLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StreetAddress = "";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
 
         }
+        [TestMethod]
+        public void TestStreetAddressMin()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StreetAddress = "a";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStreetAddressMinPlusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StreetAddress = "aa";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStreetAddressMaxLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StreetAddress = "";
+            StreetAddress = StreetAddress.PadRight(99, 'a');
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStreetAddressMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StreetAddress = "";
+            StreetAddress = StreetAddress.PadRight(100, 'a');
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStreetAddressMid()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StreetAddress = "";
+            StreetAddress = StreetAddress.PadRight(50, 'a');
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStreetAddressMaxPlusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StreetAddress = "";
+            StreetAddress = StreetAddress.PadRight(101, 'a');
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStreetAddressExtremeMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StreetAddress = "";
+            StreetAddress = StreetAddress.PadRight(200, 'a');
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TestStreetAddressExtremeMin()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string StreetAddress = "";
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
+
+            Assert.AreEqual(Error, "");
+
+        }
+
+    
         [TestMethod]
         public void TestPermissionFound()
         {
@@ -298,16 +739,15 @@ namespace AgileProductsLTDtesting
             }
             Assert.IsTrue(OK);
         }
+
         [TestMethod]
         public void ValidMethodOK()
         {
             clsStaff AnStaff = new clsStaff();
             string Error = "";
-            Error = AnStaff.Valid(PhoneNumber, DateOfBirth, StaffFirstnameAndLastname, StreetAddress, Department);
+            Error = AnStaff.Valid(DateOfBirth, Department, StaffFirstnameAndLastname, StreetAddress, PhoneNumber);
             Assert.AreEqual(Error, "");
 
         }
     }
 }
-
-

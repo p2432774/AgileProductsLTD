@@ -84,6 +84,7 @@ namespace Software_HardwareClasses
         }
 
         private int mStaffID;
+
         public int StaffID
         {
             get
@@ -95,6 +96,7 @@ namespace Software_HardwareClasses
                 mStaffID = value;
             }
         }
+
 
         public bool Find(int StaffID)
         {
@@ -117,16 +119,56 @@ namespace Software_HardwareClasses
             {
                 return false;
             }
-
         }
 
-        public string Valid(string phoneNumber, string dateOfBirth, string staffFirstnameAndLastname, string streetAddress, string department)
+        public string Valid(string DateOfBirth, string Department, string StaffFirstnameAndLastname, string StreetAddress, string PhoneNumber)
         {
             String Error = "";
             DateTime DateTemp;
-            if ()
-        }
-        // public string Valid(string PhoneNumber, DateTime DateOfBirth, string StaffFirstnameAndLastname, string StreetAddress, string Department)
 
+            if (Department.Length > 100)
+            {
+                Error = Error + ("The Department cannot have more than 100 letters : ");
+            }
+
+            if (StaffFirstnameAndLastname.Length > 100)
+            {
+                Error = Error + ("The Department cannot have more than 100 letters : ");
+            }
+
+            try
+            { 
+            DateTemp = Convert.ToDateTime(DateOfBirth);
+                if (DateTemp < DateTime.Now.Date.AddYears(-100))
+                {
+                    Error = Error + ("The Date cannot be less than 100 years of today (mm/dd/yyyy) : ");         
+                 }
+            DateTemp = Convert.ToDateTime(DateOfBirth);
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + ("The Date cannot be in the future (mm/dd/yyyy) : ");
+                }
+            }
+            catch
+            {
+                Error = Error + ("The date was not a valid date (mm/dd/yyyy) : ");
+            }
+
+            if (StaffFirstnameAndLastname.Length > 100)
+            {
+                Error = Error + ("The Firstname and Lastname cannot have more than 100 letters : ");
+            }
+
+          if (PhoneNumber.Length > 12)
+            {
+                Error = Error + ("The Phone number cannot be over 12 numbers : ");
+            }
+          if (StreetAddress.Length > 100)
+            {
+                Error = Error + ("The Staff Address cannot be over 100 characters : ");
+            }
+            return Error;
+
+        }
     }
 }

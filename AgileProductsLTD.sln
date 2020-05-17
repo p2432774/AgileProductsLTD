@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.645
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FrontEnd", "FrontEnd\", "{2B487DA5-C8DA-4805-8395-12601EBB10FA}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -31,6 +31,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Software_HardwareClasses", "Software_HardwareClasses\Software_HardwareClasses.csproj", "{DDA227AD-8A2B-4331-A61A-C7D6F789D2D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileProductsLTDtesting", "AgileProductsLTDtesting\AgileProductsLTDtesting.csproj", "{8B107B01-DE2A-4545-961A-8F0E80C15520}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C097FB24-C75E-4D45-AEB3-CDD70518BB4B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
