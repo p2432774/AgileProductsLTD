@@ -97,7 +97,7 @@ public partial class _Default : System.Web.UI.Page
             }
             //Redirect back to the list page
             Response.Redirect("HardwareList.aspx");
-        }
+            }
         else
         {
             //Displays the error message

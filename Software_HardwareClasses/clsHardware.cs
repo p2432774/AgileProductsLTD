@@ -132,52 +132,72 @@ namespace Software_HardwareClasses
             String Error = "";
             //Creates a temporary variable to store date values
             DateTime DateTemp;
-            //If the ID number is blank
-            if (Name.Length == 0)
-            {
+
+            //If the name is blank
+            if (Name.Length == 0) {
                 //Record the error
                 Error = Error + "The name may not be blank!";
             }
-            //If the ID number is greater than 5
-            if (Name.Length > 25)
-            {
+
+            //If the name is greater than 25
+            if (Name.Length > 25) {
                 //Record the error
                 Error = Error + "The name must be 6 characters or less!";
             }
-            //If the name is blank
+
+            //If the description is blank
             if (Description.Length == 0)
             {
                 //Record the error
-                Error = Error + "The description may not be blank: ";
+                Error = Error + "The description may not be blank!";
             }
-            //If the Name is blank
-            if (Description.Length > 100)
-            {
+
+            //If the description is greater than 100
+            if (Description.Length > 100) {
                 //Record the error
-                Error = Error + "The description must be 25 characters or less";
+                Error = Error + "The description must be 25 characters or less!";
             }
-            try
-            {
+
+            try {
+                //Creates a temporary variable to attempt the conversion
+                int TempInt = Convert.ToInt32(Price);
+            } catch {
+                //Record the error
+                Error = Error + "Please make sure there are only numbers in the Price field!";
+            }
+
+            try {
+                int TempInt = Convert.ToInt32(AmountInStock);
+            } catch {
+                //Record the error
+                Error = Error + "Please make sure there are only numbers in the AmountInStock field!";
+            }
+
+            //Creates a temporary variable to store the upper case version of StockRequired
+            string TempBool = StockRequired.ToUpper();
+            if(TempBool != "TRUE" && TempBool != "FALSE") {
+                //Record the error
+                Error = Error + "Please make sure you have True or False in the StockRequired field!";
+            }
+
+            try {
                 //Copies the DateAdded variable to the DateTemp variable
                 DateTemp = Convert.ToDateTime(DateAdded);
                 //If the date given is in the past
-                if (DateTemp < DateTime.Now.Date)
-                {
+                if (DateTemp < DateTime.Now.Date) {
                     //Record the error
-                    Error = Error + "The date cannot be in the past: ";
+                    Error = Error + "The date cannot be in the past!";
                 }
                 //If the date given is in the future
-                if (DateTemp > DateTime.Now.Date)
-                {
+                if (DateTemp > DateTime.Now.Date) {
                     //Record the error
-                    Error = Error + "The date cannot be in the future: ";
+                    Error = Error + "The date cannot be in the future!";
                 }
-            }
-            catch
-            {
+            } catch {
                 //Record the error
-                Error = Error + "The date was not a valid date: ";
+                Error = Error + "The date is not a valid date!";
             }
+
             //Return the error message
             return Error;
         }
